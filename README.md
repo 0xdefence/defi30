@@ -59,3 +59,5 @@ defi-30/
 Composite = `(Detection * 0.5) + (Precision * 0.3) + (Severity * 0.2)`
 
 See [METHODOLOGY.md](./METHODOLOGY.md) for details.
+
+Taxonomy rules: [TAXONOMY.md](./TAXONOMY.md)

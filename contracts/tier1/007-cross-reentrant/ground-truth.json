@@ -1,0 +1,15 @@
+{
+  "contractName": "CrossReentrant",
+  "tier": 1,
+  "totalExpectedFindings": 1,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "reentrancy",
+      "severity": "critical",
+      "location": "withdraw(uint256)",
+      "description": "External callback and transfer happen before state update",
+      "attackVector": "callback"
+    }
+  ]
+}

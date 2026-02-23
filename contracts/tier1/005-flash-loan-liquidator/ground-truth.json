@@ -1,0 +1,15 @@
+{
+  "contractName": "FlashLoanLiquidator",
+  "tier": 1,
+  "totalExpectedFindings": 1,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "price-manipulation",
+      "severity": "critical",
+      "location": "liquidate(address)",
+      "description": "Liquidation uses manipulable spot price enabling flash-loan assisted price manipulation",
+      "attackVector": "flash-loan"
+    }
+  ]
+}

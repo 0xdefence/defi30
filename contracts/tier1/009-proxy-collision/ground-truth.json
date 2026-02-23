@@ -1,0 +1,14 @@
+{
+  "contractName": "ProxyCollision",
+  "tier": 1,
+  "totalExpectedFindings": 1,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "delegatecall",
+      "severity": "critical",
+      "location": "fallback()",
+      "description": "Delegatecall-based proxy can expose storage-collision/state corruption risks"
+    }
+  ]
+}

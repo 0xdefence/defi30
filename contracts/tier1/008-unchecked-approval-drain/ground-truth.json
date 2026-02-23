@@ -1,0 +1,21 @@
+{
+  "contractName": "UncheckedApprovalDrain",
+  "tier": 1,
+  "totalExpectedFindings": 2,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "unchecked-return",
+      "severity": "high",
+      "location": "sweep(address,uint256)",
+      "description": "ERC20 transferFrom return value is ignored"
+    },
+    {
+      "id": "VULN-002",
+      "class": "access-control",
+      "severity": "high",
+      "location": "setUnlimitedApproval()",
+      "description": "Unrestricted unlimited approval can enable drain patterns"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "contractName": "OracleStalenessAdmin",
+  "tier": 1,
+  "totalExpectedFindings": 2,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "oracle-manipulation",
+      "severity": "critical",
+      "location": "getPrice()",
+      "description": "Missing staleness/freshness validation for oracle price"
+    },
+    {
+      "id": "VULN-002",
+      "class": "access-control",
+      "severity": "high",
+      "location": "setFeed(address)",
+      "description": "Admin feed update lacks governance delay/safety controls"
+    }
+  ]
+}

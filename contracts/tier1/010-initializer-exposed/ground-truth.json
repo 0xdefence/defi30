@@ -1,0 +1,21 @@
+{
+  "contractName": "InitializerExposed",
+  "tier": 1,
+  "totalExpectedFindings": 2,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "initialisation",
+      "severity": "high",
+      "location": "initialize(address)",
+      "description": "Initializer is publicly callable and not single-use enforced"
+    },
+    {
+      "id": "VULN-002",
+      "class": "access-control",
+      "severity": "high",
+      "location": "emergencySetOwner(address)",
+      "description": "Uses tx.origin for authorization"
+    }
+  ]
+}

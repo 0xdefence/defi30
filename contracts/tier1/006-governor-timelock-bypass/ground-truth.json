@@ -1,0 +1,14 @@
+{
+  "contractName": "GovernorTimelockBypass",
+  "tier": 1,
+  "totalExpectedFindings": 1,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "governance",
+      "severity": "high",
+      "location": "execute(bytes32)",
+      "description": "Queued actions can execute without waiting timelock duration"
+    }
+  ]
+}
