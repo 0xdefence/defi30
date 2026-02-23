@@ -1,15 +1,23 @@
 {
-  "contractName": "013-cream-callback",
+  "contractName": "CreamCallback",
   "tier": 2,
   "source": "Cream Finance",
-  "totalExpectedFindings": 1,
+  "totalExpectedFindings": 2,
   "knownVulnerabilities": [
     {
       "id": "VULN-001",
       "class": "reentrancy",
       "severity": "critical",
-      "location": "borrow()",
-      "description": "Callback-enabled reentrancy can bypass expected accounting flow"
+      "location": "borrow(uint256)",
+      "description": "External callback executes before debt accounting update"
+    },
+    {
+      "id": "VULN-002",
+      "class": "access-control",
+      "severity": "high",
+      "location": "borrow(uint256)",
+      "description": "Borrow flow lacks reentrancy guard around externally controlled callback",
+      "attackVector": "callback"
     }
   ]
 }
