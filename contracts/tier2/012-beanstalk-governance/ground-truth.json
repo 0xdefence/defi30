@@ -1,0 +1,15 @@
+{
+  "contractName": "012-beanstalk-governance",
+  "tier": 2,
+  "source": "Beanstalk",
+  "totalExpectedFindings": 1,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "governance",
+      "severity": "critical",
+      "location": "proposeAndExecute()",
+      "description": "Flash-loan voting power enables malicious governance execution"
+    }
+  ]
+}

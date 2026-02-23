@@ -1,0 +1,15 @@
+{
+  "contractName": "017-parity-delegatecall",
+  "tier": 2,
+  "source": "Parity Wallet",
+  "totalExpectedFindings": 1,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "delegatecall",
+      "severity": "critical",
+      "location": "fallback()",
+      "description": "Delegatecall/library control path allows catastrophic takeover"
+    }
+  ]
+}

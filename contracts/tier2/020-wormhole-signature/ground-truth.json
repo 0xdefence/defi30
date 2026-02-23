@@ -1,0 +1,15 @@
+{
+  "contractName": "020-wormhole-signature",
+  "tier": 2,
+  "source": "Wormhole",
+  "totalExpectedFindings": 1,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "signature-verification",
+      "severity": "critical",
+      "location": "verifySignature()",
+      "description": "Signature verification path can be bypassed"
+    }
+  ]
+}

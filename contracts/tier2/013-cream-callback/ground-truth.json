@@ -1,0 +1,15 @@
+{
+  "contractName": "013-cream-callback",
+  "tier": 2,
+  "source": "Cream Finance",
+  "totalExpectedFindings": 1,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "reentrancy",
+      "severity": "critical",
+      "location": "borrow()",
+      "description": "Callback-enabled reentrancy can bypass expected accounting flow"
+    }
+  ]
+}

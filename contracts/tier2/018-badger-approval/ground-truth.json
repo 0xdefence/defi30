@@ -1,0 +1,15 @@
+{
+  "contractName": "018-badger-approval",
+  "tier": 2,
+  "source": "BadgerDAO",
+  "totalExpectedFindings": 1,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "unchecked-return",
+      "severity": "high",
+      "location": "approveAndPull()",
+      "description": "Approval/interaction flow allows token drain pattern"
+    }
+  ]
+}

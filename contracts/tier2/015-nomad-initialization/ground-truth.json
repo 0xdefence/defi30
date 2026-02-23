@@ -1,0 +1,15 @@
+{
+  "contractName": "015-nomad-initialization",
+  "tier": 2,
+  "source": "Nomad",
+  "totalExpectedFindings": 1,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "initialisation",
+      "severity": "critical",
+      "location": "initialize()",
+      "description": "Unsafe initialization permits invalid trusted-root configuration"
+    }
+  ]
+}

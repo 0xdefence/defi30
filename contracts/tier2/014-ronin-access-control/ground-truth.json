@@ -1,0 +1,15 @@
+{
+  "contractName": "014-ronin-access-control",
+  "tier": 2,
+  "source": "Ronin Bridge",
+  "totalExpectedFindings": 1,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "access-control",
+      "severity": "critical",
+      "location": "approveTransfer()",
+      "description": "Insufficient signer/threshold assumptions in privileged path"
+    }
+  ]
+}

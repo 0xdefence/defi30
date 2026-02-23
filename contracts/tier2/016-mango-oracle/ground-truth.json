@@ -1,0 +1,15 @@
+{
+  "contractName": "016-mango-oracle",
+  "tier": 2,
+  "source": "Mango Markets",
+  "totalExpectedFindings": 1,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "oracle-manipulation",
+      "severity": "critical",
+      "location": "getCollateralValue()",
+      "description": "Thin-liquidity oracle input enables collateral overvaluation"
+    }
+  ]
+}

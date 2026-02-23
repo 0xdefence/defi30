@@ -1,0 +1,15 @@
+{
+  "contractName": "019-harvest-price-manipulation",
+  "tier": 2,
+  "source": "Harvest Finance",
+  "totalExpectedFindings": 1,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "price-manipulation",
+      "severity": "critical",
+      "location": "sharePrice()",
+      "description": "AMM spot manipulation impacts vault accounting"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "contractName": "011-euler-exchange-rate",
+  "tier": 2,
+  "source": "Euler Finance",
+  "totalExpectedFindings": 1,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "price-manipulation",
+      "severity": "critical",
+      "location": "execute()",
+      "description": "Exchange rate/accounting can be manipulated via flash-liquidity path"
+    }
+  ]
+}
