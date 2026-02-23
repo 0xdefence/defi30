@@ -1,0 +1,14 @@
+{
+  "contractName": "ReentrancyVault",
+  "tier": 1,
+  "totalExpectedFindings": 1,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "reentrancy",
+      "severity": "critical",
+      "location": "withdraw()",
+      "description": "State update occurs after external call"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "toolName": "0xDefend",
+  "toolVersion": "v1",
+  "timestamp": "2026-02-23T00:00:00Z",
+  "contracts": [
+    {
+      "contractId": "001-reentrancy-vault",
+      "findings": [
+        {
+          "title": "Reentrancy in withdraw",
+          "class": "reentrancy",
+          "severity": "critical",
+          "location": "withdraw()",
+          "description": "State is updated after external call",
+          "confidence": 0.93
+        }
+      ]
+    },
+    {
+      "contractId": "002-stale-oracle-vault",
+      "findings": [
+        {
+          "title": "Stale oracle accepted",
+          "class": "oracle-manipulation",
+          "severity": "critical",
+          "location": "getPrice()",
+          "description": "No freshness check on oracle value",
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "contractId": "003-clean-vault",
+      "findings": []
+    }
+  ]
+}

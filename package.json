@@ -1,0 +1,19 @@
+{
+  "name": "defi-30",
+  "version": "0.1.0",
+  "description": "Open benchmark for DeFi smart contract security detection",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "defi-30": "src/cli.ts"
+  },
+  "scripts": {
+    "score": "bun run src/cli.ts score",
+    "validate": "bun run src/cli.ts validate",
+    "example": "bun run src/cli.ts score ./results/0xdefend-v1.json"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2",
+    "@types/bun": "latest"
+  }
+}

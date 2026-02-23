@@ -1,0 +1,15 @@
+{
+  "contractName": "StaleOracleVault",
+  "tier": 1,
+  "totalExpectedFindings": 1,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "oracle-manipulation",
+      "severity": "critical",
+      "location": "getPrice()",
+      "description": "Oracle freshness/staleness not validated",
+      "attackVector": "price-manipulation"
+    }
+  ]
+}
