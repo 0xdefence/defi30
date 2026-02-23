@@ -1,15 +1,25 @@
-# 020-wormhole-signature
+# 020 — Wormhole Signature Verification Pattern (Minimal Recreation)
 
-## Source context
-Derived as a minimal recreation pattern inspired by public reports on **Wormhole**.
+## Pattern summary
+This case models a bridge-like execution endpoint that should only execute authorized signed payloads.
 
-## Intended vulnerability class
-- Primary class: signature-verification
-- Expected severity: critical
+## Vulnerable chain
+1. `recover()` returns `address(0)` for malformed signatures instead of reverting.
+2. `execute()` incorrectly allows `signer == address(0)`.
+3. Digest construction lacks strong domain separation (no chain/contract binding).
+4. Authorization uses single signer semantics instead of robust guardian thresholding.
 
-## What this case tests
-This case checks whether a tool can identify the core exploit mechanism under simplified but realistic DeFi logic.
+## Why detection should succeed
+A capable detector should flag:
+- signature verification bypass logic,
+- weak authorization model for high-impact execution path.
 
-## Notes
-- This is a benchmark recreation, not full protocol code.
-- Keep logic minimal and deterministic for reproducible scoring.
+## Expected findings
+- `signature-verification` (critical)
+- `access-control` (critical)
+
+## Defensive controls
+- strict signature parser + reject on malformed signatures
+- mandatory non-zero signer + threshold signature validation
+- domain-separated digest (chainId, contract address, typed data)
+- replay protection keyed by full signed message envelope

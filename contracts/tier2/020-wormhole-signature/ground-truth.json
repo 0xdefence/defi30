@@ -1,15 +1,22 @@
 {
-  "contractName": "020-wormhole-signature",
+  "contractName": "WormholeSignature",
   "tier": 2,
   "source": "Wormhole",
-  "totalExpectedFindings": 1,
+  "totalExpectedFindings": 2,
   "knownVulnerabilities": [
     {
       "id": "VULN-001",
       "class": "signature-verification",
       "severity": "critical",
-      "location": "verifySignature()",
-      "description": "Signature verification path can be bypassed"
+      "location": "execute(address,uint256,uint256,bytes)",
+      "description": "Execution path accepts malformed/zero-signer verification outcomes"
+    },
+    {
+      "id": "VULN-002",
+      "class": "access-control",
+      "severity": "critical",
+      "location": "execute(address,uint256,uint256,bytes)",
+      "description": "Single-signer authorization and weak domain separation enable forged or replayable approvals"
     }
   ]
 }

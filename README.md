@@ -26,8 +26,12 @@ DeFi-30 is a TypeScript-native benchmark for evaluating how well any tool (AI ag
 
 ```bash
 bun install
-bun run src/cli.ts score ./results/0xdefend-v1.json
+bun run src/cli.ts score ./results/0xdefend-v1.json --strict
 ```
+
+Versioning + integrity:
+- [BENCHMARK_VERSION.md](./BENCHMARK_VERSION.md)
+- [BENCHMARK_CHECKSUMS.json](./BENCHMARK_CHECKSUMS.json)
 
 ## Repo layout
 
