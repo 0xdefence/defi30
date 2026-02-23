@@ -1,15 +1,23 @@
 {
-  "contractName": "019-harvest-price-manipulation",
+  "contractName": "HarvestPriceManipulation",
   "tier": 2,
   "source": "Harvest Finance",
-  "totalExpectedFindings": 1,
+  "totalExpectedFindings": 2,
   "knownVulnerabilities": [
     {
       "id": "VULN-001",
+      "class": "oracle-manipulation",
+      "severity": "critical",
+      "location": "spot()",
+      "description": "Vault accounting consumes manipulable AMM spot price without robust oracle protections"
+    },
+    {
+      "id": "VULN-002",
       "class": "price-manipulation",
       "severity": "critical",
-      "location": "sharePrice()",
-      "description": "AMM spot manipulation impacts vault accounting"
+      "location": "deposit(uint256)",
+      "description": "Share minting can be gamed by temporary spot-price distortion (flash-liquidity style)",
+      "attackVector": "flash-loan"
     }
   ]
 }

@@ -1,15 +1,24 @@
-# 014-ronin-access-control
+# 014 — Ronin Access-Control / Threshold Pattern (Minimal Recreation)
 
-## Source context
-Derived as a minimal recreation pattern inspired by public reports on **Ronin Bridge**.
+## Pattern summary
+This case models bridge transfer authorization that relies on validator signatures and a configurable threshold.
 
-## Intended vulnerability class
-- Primary class: access-control
-- Expected severity: critical
+## Vulnerable chain
+1. `setThreshold()` allows owner to reduce signing threshold without additional controls.
+2. `executeTransfer()` authorizes payouts using signer-count logic against that threshold.
+3. If threshold assumptions degrade, high-value transfers can be approved with insufficient security.
 
-## What this case tests
-This case checks whether a tool can identify the core exploit mechanism under simplified but realistic DeFi logic.
+## Why detection should succeed
+A capable detector should find:
+- critical access-control risk on threshold governance,
+- critical signature-verification/authorization weakness in transfer execution.
 
-## Notes
-- This is a benchmark recreation, not full protocol code.
-- Keep logic minimal and deterministic for reproducible scoring.
+## Expected findings
+- `access-control` (critical) in `setThreshold(uint256)`
+- `signature-verification` (critical) in `executeTransfer(...)`
+
+## Defensive controls
+- immutable minimum threshold floor
+- two-step timelocked threshold changes
+- quorum + diversity requirements for validator sets
+- independent guardian veto for threshold reductions

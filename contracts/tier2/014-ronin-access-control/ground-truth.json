@@ -1,15 +1,22 @@
 {
-  "contractName": "014-ronin-access-control",
+  "contractName": "RoninAccessControl",
   "tier": 2,
   "source": "Ronin Bridge",
-  "totalExpectedFindings": 1,
+  "totalExpectedFindings": 2,
   "knownVulnerabilities": [
     {
       "id": "VULN-001",
       "class": "access-control",
       "severity": "critical",
-      "location": "approveTransfer()",
-      "description": "Insufficient signer/threshold assumptions in privileged path"
+      "location": "setThreshold(uint256)",
+      "description": "Threshold security parameter can be dangerously lowered without robust governance guardrails"
+    },
+    {
+      "id": "VULN-002",
+      "class": "signature-verification",
+      "severity": "critical",
+      "location": "executeTransfer(bytes32,address,uint256,address[])",
+      "description": "Transfer authorization depends on weak signer-count logic and mutable threshold assumptions"
     }
   ]
 }
