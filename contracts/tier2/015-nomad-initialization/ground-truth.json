@@ -1,15 +1,22 @@
 {
-  "contractName": "015-nomad-initialization",
+  "contractName": "NomadInitialization",
   "tier": 2,
   "source": "Nomad",
-  "totalExpectedFindings": 1,
+  "totalExpectedFindings": 2,
   "knownVulnerabilities": [
     {
       "id": "VULN-001",
       "class": "initialisation",
       "severity": "critical",
-      "location": "initialize()",
-      "description": "Unsafe initialization permits invalid trusted-root configuration"
+      "location": "initialize(bytes32,address)",
+      "description": "Initializer is not one-time protected and can be called repeatedly"
+    },
+    {
+      "id": "VULN-002",
+      "class": "access-control",
+      "severity": "critical",
+      "location": "initialize(bytes32,address)",
+      "description": "Trusted root is accepted without validation, allowing invalid/zero-root trust bootstrap"
     }
   ]
 }
