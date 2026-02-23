@@ -1,15 +1,23 @@
 {
-  "contractName": "016-mango-oracle",
+  "contractName": "MangoOracle",
   "tier": 2,
   "source": "Mango Markets",
-  "totalExpectedFindings": 1,
+  "totalExpectedFindings": 2,
   "knownVulnerabilities": [
     {
       "id": "VULN-001",
       "class": "oracle-manipulation",
       "severity": "critical",
-      "location": "getCollateralValue()",
-      "description": "Thin-liquidity oracle input enables collateral overvaluation"
+      "location": "spotPrice()",
+      "description": "Oracle uses manipulable AMM spot reserve ratio without TWAP/outlier protections"
+    },
+    {
+      "id": "VULN-002",
+      "class": "price-manipulation",
+      "severity": "critical",
+      "location": "borrow(uint256)",
+      "description": "Borrow gate trusts manipulated spot-derived collateral value",
+      "attackVector": "flash-loan"
     }
   ]
 }

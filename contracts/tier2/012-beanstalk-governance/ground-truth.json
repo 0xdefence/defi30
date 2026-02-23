@@ -1,15 +1,23 @@
 {
-  "contractName": "012-beanstalk-governance",
+  "contractName": "BeanstalkGovernance",
   "tier": 2,
   "source": "Beanstalk",
-  "totalExpectedFindings": 1,
+  "totalExpectedFindings": 2,
   "knownVulnerabilities": [
     {
       "id": "VULN-001",
       "class": "governance",
       "severity": "critical",
-      "location": "proposeAndExecute()",
-      "description": "Flash-loan voting power enables malicious governance execution"
+      "location": "vote(uint256)",
+      "description": "Voting power uses current token balance without snapshot, enabling flash-loan vote inflation"
+    },
+    {
+      "id": "VULN-002",
+      "class": "governance",
+      "severity": "critical",
+      "location": "execute(uint256)",
+      "description": "Execution has no timelock/cooldown after quorum, enabling immediate malicious proposal execution",
+      "attackVector": "flash-loan"
     }
   ]
 }

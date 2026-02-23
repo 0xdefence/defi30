@@ -1,15 +1,23 @@
 {
-  "contractName": "011-euler-exchange-rate",
+  "contractName": "EulerExchangeRate",
   "tier": 2,
   "source": "Euler Finance",
-  "totalExpectedFindings": 1,
+  "totalExpectedFindings": 2,
   "knownVulnerabilities": [
     {
       "id": "VULN-001",
       "class": "price-manipulation",
       "severity": "critical",
-      "location": "execute()",
-      "description": "Exchange rate/accounting can be manipulated via flash-liquidity path"
+      "location": "collateralValue(address)",
+      "description": "Collateral valuation relies on instantly manipulable exchange rate"
+    },
+    {
+      "id": "VULN-002",
+      "class": "flash-loan",
+      "severity": "critical",
+      "location": "borrow(uint256)",
+      "description": "Borrow checks can be bypassed with flash-liquidity donation that temporarily inflates exchange rate",
+      "attackVector": "flash-loan"
     }
   ]
 }

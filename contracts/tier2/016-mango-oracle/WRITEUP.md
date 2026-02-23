@@ -1,15 +1,25 @@
-# 016-mango-oracle
+# 016 — Mango Oracle Manipulation Pattern (Minimal Recreation)
 
-## Source context
-Derived as a minimal recreation pattern inspired by public reports on **Mango Markets**.
+## Pattern summary
+This case recreates a common DeFi failure: protocol borrows are guarded by collateral valuation derived from a manipulable AMM spot price.
 
-## Intended vulnerability class
-- Primary class: oracle-manipulation
-- Expected severity: critical
+## Vulnerable chain
+1. `spotPrice()` reads reserve ratio from a single AMM pair.
+2. Attacker temporarily distorts reserves (thin liquidity / flash capital).
+3. `collateralValue()` is inflated.
+4. `borrow()` accepts inflated collateral and releases funds.
 
-## What this case tests
-This case checks whether a tool can identify the core exploit mechanism under simplified but realistic DeFi logic.
+## Why detection should succeed
+A strong detector should identify both:
+- oracle design issue in `spotPrice()` (no TWAP/deviation guard), and
+- lending risk issue in `borrow()` (trusting spot-derived collateral directly).
 
-## Notes
-- This is a benchmark recreation, not full protocol code.
-- Keep logic minimal and deterministic for reproducible scoring.
+## Expected findings
+- `oracle-manipulation` in `spotPrice()`
+- `price-manipulation` in `borrow(uint256)`
+
+## Defensive controls
+- TWAP or robust median oracle path
+- min-liquidity/depth constraints
+- confidence-weighted LTV and borrow caps
+- circuit breaker on abnormal price moves
