@@ -1,15 +1,22 @@
 {
-  "contractName": "017-parity-delegatecall",
+  "contractName": "ParityDelegatecall",
   "tier": 2,
   "source": "Parity Wallet",
-  "totalExpectedFindings": 1,
+  "totalExpectedFindings": 2,
   "knownVulnerabilities": [
     {
       "id": "VULN-001",
       "class": "delegatecall",
       "severity": "critical",
       "location": "fallback()",
-      "description": "Delegatecall/library control path allows catastrophic takeover"
+      "description": "Proxy fallback blindly delegatecalls to mutable library address, exposing full storage/control surface"
+    },
+    {
+      "id": "VULN-002",
+      "class": "initialisation",
+      "severity": "critical",
+      "location": "initWallet(address)",
+      "description": "Initializer is callable through proxy context and can reset owner, enabling takeover and destructive actions"
     }
   ]
 }

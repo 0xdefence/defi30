@@ -1,15 +1,23 @@
 {
-  "contractName": "018-badger-approval",
+  "contractName": "BadgerApproval",
   "tier": 2,
   "source": "BadgerDAO",
-  "totalExpectedFindings": 1,
+  "totalExpectedFindings": 2,
   "knownVulnerabilities": [
     {
       "id": "VULN-001",
+      "class": "access-control",
+      "severity": "critical",
+      "location": "approveAndPull(address,uint256)",
+      "description": "Untrusted caller-controlled spender is granted unlimited token approval, enabling downstream drain",
+      "attackVector": "malicious-integration"
+    },
+    {
+      "id": "VULN-002",
       "class": "unchecked-return",
       "severity": "high",
-      "location": "approveAndPull()",
-      "description": "Approval/interaction flow allows token drain pattern"
+      "location": "approveAndPull(address,uint256)",
+      "description": "ERC20 approve/transferFrom return values are ignored, allowing silent failure and unsafe assumptions"
     }
   ]
 }
