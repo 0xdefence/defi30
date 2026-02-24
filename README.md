@@ -17,6 +17,8 @@ DeFi-30 is a TypeScript-native benchmark for evaluating how well any tool (AI ag
 - Public leaderboard
 - Realism leaderboard (detect + exploit + patch)
 
+> Note: The current Tier3 seed set is derived from public-audit patterns; canonical source links are being expanded in the next drop.
+
 ## What does NOT ship in this repo
 - 0xDefend proprietary pipeline logic
 - LLM prompts/system instructions
