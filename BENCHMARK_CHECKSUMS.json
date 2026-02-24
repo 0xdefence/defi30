@@ -1,6 +1,6 @@
 {
-  "version": "v0.1.0-alpha",
-  "datasetHash": "5d04bb67891b5fcbfb002c94ce1b53e12c79234d317f3e779cba39d77b01a8d1",
+  "version": "v0.2.0-alpha",
+  "datasetHash": "b20b2bc3280c48e2e6280b0048c8f7e9f54cac8b856321190a6744affef31278",
   "files": [
     {
       "path": "contracts/tier1/001-reentrancy-vault/contract.sol",
@@ -8,7 +8,7 @@
     },
     {
       "path": "contracts/tier1/001-reentrancy-vault/ground-truth.json",
-      "sha256": "ea2b0dfdd8db83ec0c4bb11d9accc74295aa13a39f4074f53bada813b9035928"
+      "sha256": "9052ff7303f058f8df56859611e0d825de2a1afb6b542282536956fdcefa72da"
     },
     {
       "path": "contracts/tier1/002-stale-oracle-vault/contract.sol",
@@ -16,7 +16,7 @@
     },
     {
       "path": "contracts/tier1/002-stale-oracle-vault/ground-truth.json",
-      "sha256": "0baacbccf77d6ac64ebcf95d113680fd107fd3cabc6a32e92bd8bfd376bdc54f"
+      "sha256": "52d7ba5b9f886d3fb08045768d6541daecbac84d049ba4490f8ddad2073dc21a"
     },
     {
       "path": "contracts/tier1/003-clean-vault/contract.sol",
@@ -32,7 +32,7 @@
     },
     {
       "path": "contracts/tier1/004-oracle-staleness-admin/ground-truth.json",
-      "sha256": "6383c23d2cd25de62af1919c178543cade11dc83c18e5b5d7a380135f151bb7d"
+      "sha256": "eb9506f20e1aa5b10e97ba897bf602c85054f1a7478a9a888473fe1124e1091d"
     },
     {
       "path": "contracts/tier1/005-flash-loan-liquidator/contract.sol",
@@ -64,7 +64,7 @@
     },
     {
       "path": "contracts/tier1/008-unchecked-approval-drain/ground-truth.json",
-      "sha256": "282ba29c5399354c84dd1c3405f4424701e78f3439907163af478e443df9ccb6"
+      "sha256": "1b2e82fcae8f2fb8c3e4bf83b4332293e02e000fc66bd42342387b4e3ea42a4a"
     },
     {
       "path": "contracts/tier1/009-proxy-collision/contract.sol",
@@ -80,7 +80,7 @@
     },
     {
       "path": "contracts/tier1/010-initializer-exposed/ground-truth.json",
-      "sha256": "aebc2856d571c03b000ded3e5badc352a90dede0249cc41a9bc67e1961085897"
+      "sha256": "2a7b96156c9a92ebaf5c115c86acf42d7db1c4782321c43c74962ae575a8c145"
     },
     {
       "path": "contracts/tier2/011-euler-exchange-rate/contract.sol",
@@ -88,7 +88,7 @@
     },
     {
       "path": "contracts/tier2/011-euler-exchange-rate/ground-truth.json",
-      "sha256": "443be3e82f920f1814ad5977c276dfb26bdac52c546eaac322414c3d38e3ac79"
+      "sha256": "d971fef0184e657f01f140af29a1adf82e95d3aeb7578e5336e6f1be2792194f"
     },
     {
       "path": "contracts/tier2/012-beanstalk-governance/contract.sol",
@@ -96,7 +96,7 @@
     },
     {
       "path": "contracts/tier2/012-beanstalk-governance/ground-truth.json",
-      "sha256": "fb9bbd47a3a1d731117b73e945ca7f422085ed9a4726470a28fb43fb1d014ee9"
+      "sha256": "6318cc91400968c592866192cff904e624d64b8c204544ce7269cee70e0e9996"
     },
     {
       "path": "contracts/tier2/013-cream-callback/contract.sol",
@@ -104,15 +104,15 @@
     },
     {
       "path": "contracts/tier2/013-cream-callback/ground-truth.json",
-      "sha256": "952c0d7b0e3a4a34a98b98e79a4dae922e3aeb8a3afed2478cfdafc55b09c134"
+      "sha256": "4ed48e17f9423bc60c2d1145986029bd7d9b9c8daae0f64c6214bb4674016f7b"
     },
     {
       "path": "contracts/tier2/014-ronin-access-control/contract.sol",
-      "sha256": "c2d0348058ee4cea234dfa7451f3845d551921a6067e11d2feb458d215926eb3"
+      "sha256": "9c9ace219e69669d3b26b2c8e3582fc9150a140b3ed14e7b44318d94939caa4e"
     },
     {
       "path": "contracts/tier2/014-ronin-access-control/ground-truth.json",
-      "sha256": "65cf0547c4bd216893114e405d333cc0d53d421736f1aa601b66e07dba6e5518"
+      "sha256": "1b140889f4884f9b42b09daff7d1a6463bbd46b9c957a5a8aeaab1532bad765e"
     },
     {
       "path": "contracts/tier2/015-nomad-initialization/contract.sol",
@@ -120,7 +120,7 @@
     },
     {
       "path": "contracts/tier2/015-nomad-initialization/ground-truth.json",
-      "sha256": "dfbc20174aebc845b205426a6fcf84349c850f4e009bacaf50d5f802b4cb65ea"
+      "sha256": "ca79be7c62427851ef4db6a7e64e1acc04afdbd11023bee0ac7b2017da226e80"
     },
     {
       "path": "contracts/tier2/016-mango-oracle/contract.sol",
@@ -128,31 +128,31 @@
     },
     {
       "path": "contracts/tier2/016-mango-oracle/ground-truth.json",
-      "sha256": "a31b9f239cf2f557c28a28bece7e36a0d85185561445d28f67e903cbd6c3e7c6"
+      "sha256": "19892df38c78c598bd88170a57a71a11216b9d81d083221b0be39a6ed0758259"
     },
     {
       "path": "contracts/tier2/017-parity-delegatecall/contract.sol",
-      "sha256": "02ff8d7d013425de5ad625070182eacc10485ca1c8a032a6def694a93b92d0da"
+      "sha256": "6f90bde4be7476f1e01a9038abc7c3413c17d60fa3e155e0c86fe37bcdfc00c3"
     },
     {
       "path": "contracts/tier2/017-parity-delegatecall/ground-truth.json",
-      "sha256": "d1e654be237bb43fd782a2aecae0f434e7d84e364f57d96479e5b503ac92fded"
+      "sha256": "eb035269adc53185398a7861d7e5a6d508469bb59754fa397dbc5691b2c5ccc0"
     },
     {
       "path": "contracts/tier2/018-badger-approval/contract.sol",
-      "sha256": "e507f203851f00380713fbc737bb0c4a5d6f4b6bc7945f9d87501a140a607864"
+      "sha256": "e9d491ffa98d69ef059245999082b629039f6681a71e4d0abd7f90c826fe427e"
     },
     {
       "path": "contracts/tier2/018-badger-approval/ground-truth.json",
-      "sha256": "fd79d7939e435e9fdd50a89eace6de661e6f0a07e8b63b2d7c1c8e9e9226d838"
+      "sha256": "8bbe086213eadaf4fc523962d59864b65b3937e90744fd6fca27a714d725e278"
     },
     {
       "path": "contracts/tier2/019-harvest-price-manipulation/contract.sol",
-      "sha256": "35ab801b9be7294bb4455d78a28036cc39670d5b5738cc46a21a7b09d4099dd8"
+      "sha256": "d2c5c5ac972ce024b829e4453c97a5c94008da32e6a27fa53ae5762fb80afc38"
     },
     {
       "path": "contracts/tier2/019-harvest-price-manipulation/ground-truth.json",
-      "sha256": "b6dfb7ec07d6e7efa08b1277a42a46e6758ad57d36da33c87a2639cf053630f9"
+      "sha256": "8ad436ec301a832645a6309a3bb907d97198332498850be56096e460f9bc044a"
     },
     {
       "path": "contracts/tier2/020-wormhole-signature/contract.sol",
@@ -160,7 +160,31 @@
     },
     {
       "path": "contracts/tier2/020-wormhole-signature/ground-truth.json",
-      "sha256": "c17471ac95ffdaa5bec69c8c5e977b88f4fbfcf94aa4e02bd58a84b2b993ebd3"
+      "sha256": "12ffb7046281f0d3e377260681fef4b26c2758db0a10830fd7bfdc8331d33398"
+    },
+    {
+      "path": "contracts/tier3/021-c4-reward-reentrancy/contract.sol",
+      "sha256": "42c5294e05b86537764515d5b5df047821bb1790fd432a5951b4b8061e2ee841"
+    },
+    {
+      "path": "contracts/tier3/021-c4-reward-reentrancy/ground-truth.json",
+      "sha256": "2abcae3bc6a9430b547927b3a1b88ae36ccc6ff54fd98ea7cbb3e72054fd22f7"
+    },
+    {
+      "path": "contracts/tier3/022-c4-oracle-decimals/contract.sol",
+      "sha256": "0b742bf9380dd6bacde3abd1896426169ac2b34ad7819539d134a83def4845dc"
+    },
+    {
+      "path": "contracts/tier3/022-c4-oracle-decimals/ground-truth.json",
+      "sha256": "74d17bd7abc6f506ea3bee8a5e1d4d32726dba9ee9b8829ea4ec1cdb0755c499"
+    },
+    {
+      "path": "contracts/tier3/023-c4-signature-replay/contract.sol",
+      "sha256": "894d95cf8b00ba23e979aa32c3eac728bf976b91b28589878941f0cf03da0c3a"
+    },
+    {
+      "path": "contracts/tier3/023-c4-signature-replay/ground-truth.json",
+      "sha256": "506b61bb489200fd102fb9f7f662933235629e147eefac13f9f5819bb97dfb83"
     }
   ]
 }
