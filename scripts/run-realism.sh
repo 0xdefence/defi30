@@ -34,8 +34,8 @@ repo = Path('.')
 sub = json.loads(base_submission.read_text())
 contracts_map = {c['contractId']: c for c in sub.get('contracts', [])}
 
-# Ensure every known tier1/tier2 contract exists in submission with findings array.
-for tier in ['tier1', 'tier2']:
+# Ensure every known tier1/tier2/tier3 contract exists in submission with findings array.
+for tier in ['tier1', 'tier2', 'tier3']:
     tdir = repo / 'contracts' / tier
     if not tdir.exists():
         continue
@@ -54,7 +54,7 @@ def run_forge(test_path: Path):
     ok = p.returncode == 0
     return ok, dt, (p.stdout + '\n' + p.stderr).strip()[-2000:]
 
-for tier in ['tier1', 'tier2']:
+for tier in ['tier1', 'tier2', 'tier3']:
     tdir = repo / 'contracts' / tier
     if not tdir.exists():
         continue

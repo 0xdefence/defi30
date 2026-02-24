@@ -1,5 +1,5 @@
 {
-  "generatedAt": 1771929000.5910351,
+  "generatedAt": 1771935651.746421,
   "hasForge": false,
   "contracts": [
     {
@@ -264,6 +264,126 @@
       "patchValidation": {
         "status": "not-run",
         "evidence": "foundry://contracts/tier2/{011-euler-exchange-rate,012-beanstalk-governance,013-cream-callback,014-ronin-access-control,015-nomad-initialization,016-mango-oracle,017-parity-delegatecall,018-badger-approval,019-harvest-price-manipulation,020-wormhole-signature}/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "021-c4-reward-reentrancy",
+      "tier": "tier3",
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/021-c4-reward-reentrancy/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/021-c4-reward-reentrancy/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "022-c4-oracle-decimals",
+      "tier": "tier3",
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/022-c4-oracle-decimals/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/022-c4-oracle-decimals/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "023-c4-signature-replay",
+      "tier": "tier3",
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/023-c4-signature-replay/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/023-c4-signature-replay/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "024-c4-upgradeable-init",
+      "tier": "tier3",
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/024-c4-upgradeable-init/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/024-c4-upgradeable-init/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "025-c4-rounding-drift",
+      "tier": "tier3",
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/025-c4-rounding-drift/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/025-c4-rounding-drift/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "026-c4-manager-auth",
+      "tier": "tier3",
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/026-c4-manager-auth/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/026-c4-manager-auth/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "027-c4-oracle-window",
+      "tier": "tier3",
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/027-c4-oracle-window/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/027-c4-oracle-window/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "028-c4-permit-domain",
+      "tier": "tier3",
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/028-c4-permit-domain/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/028-c4-permit-domain/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "029-c4-withdraw-queue-dos",
+      "tier": "tier3",
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/029-c4-withdraw-queue-dos/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/029-c4-withdraw-queue-dos/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "030-c4-multicall-reentrancy",
+      "tier": "tier3",
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/030-c4-multicall-reentrancy/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/030-c4-multicall-reentrancy/harness/patch.t.sol"
       }
     }
   ]

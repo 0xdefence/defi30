@@ -262,6 +262,126 @@
       }
     },
     {
+      "contractId": "021-c4-reward-reentrancy",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/021-c4-reward-reentrancy/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/021-c4-reward-reentrancy/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "022-c4-oracle-decimals",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/022-c4-oracle-decimals/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/022-c4-oracle-decimals/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "023-c4-signature-replay",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/023-c4-signature-replay/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/023-c4-signature-replay/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "024-c4-upgradeable-init",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/024-c4-upgradeable-init/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/024-c4-upgradeable-init/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "025-c4-rounding-drift",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/025-c4-rounding-drift/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/025-c4-rounding-drift/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "026-c4-manager-auth",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/026-c4-manager-auth/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/026-c4-manager-auth/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "027-c4-oracle-window",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/027-c4-oracle-window/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/027-c4-oracle-window/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "028-c4-permit-domain",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/028-c4-permit-domain/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/028-c4-permit-domain/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "029-c4-withdraw-queue-dos",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/029-c4-withdraw-queue-dos/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/029-c4-withdraw-queue-dos/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "030-c4-multicall-reentrancy",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/030-c4-multicall-reentrancy/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier3/030-c4-multicall-reentrancy/harness/patch.t.sol"
+      }
+    },
+    {
       "contractId": "{004-oracle-staleness-admin,005-flash-loan-liquidator,006-governor-timelock-bypass,007-cross-reentrant,008-unchecked-approval-drain,009-proxy-collision,010-initializer-exposed}",
       "findings": [],
       "exploitValidation": {

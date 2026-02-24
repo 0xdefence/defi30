@@ -95,3 +95,10 @@ DeFi-30 publishes two separate tracks and does **not** merge them:
 2. Realism track (`results/LEADERBOARD_REALISM.md`)
 
 Scores across tracks are not directly comparable.
+
+## DeFi-30 vs EVMbench (short)
+
+- **EVMbench**: broad smart-contract benchmark/harness focus.
+- **DeFi-30**: DeFi-focused benchmark with transparent ground truth and dual-track scoring.
+
+They are complementary. DeFi-30 is designed for DeFi-specific vulnerability pattern evaluation and reproducible community submissions.
