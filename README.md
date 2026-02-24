@@ -55,13 +55,15 @@ defi-30/
 └── CONTRIBUTING.md
 ```
 
-## Scoring weights
-- Detection Rate: 50%
-- Precision: 30%
-- Severity Accuracy: 20%
+## Scoring weights (v0.2 execution-aware)
+- Detection Rate: 40%
+- Precision: 20%
+- Severity Accuracy: 10%
+- Exploit Success Rate: 20%
+- Patch Success Rate: 10%
 
-Composite = `(Detection * 0.5) + (Precision * 0.3) + (Severity * 0.2)`
+Composite = `(Detection * 0.4) + (Precision * 0.2) + (Severity * 0.1) + (Exploit * 0.2) + (Patch * 0.1)`
 
-See [METHODOLOGY.md](./METHODOLOGY.md) for details.
+See [METHODOLOGY.md](./METHODOLOGY.md) and [docs/EVALUATION_REALISM_MODE.md](./docs/EVALUATION_REALISM_MODE.md).
 
 Taxonomy rules: [TAXONOMY.md](./TAXONOMY.md)

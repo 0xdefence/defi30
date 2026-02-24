@@ -33,6 +33,8 @@ export interface GroundTruth {
   source?: string;
   totalExpectedFindings: number;
   knownVulnerabilities: Vulnerability[];
+  exploitValidationRequired?: boolean;
+  patchValidationRequired?: boolean;
 }
 
 export interface SubmittedFinding {
@@ -44,9 +46,26 @@ export interface SubmittedFinding {
   confidence: number;
 }
 
+export type ValidationStatus = "pass" | "fail" | "not-run";
+
+export interface ExploitValidation {
+  status: ValidationStatus;
+  evidence?: string;
+  runtimeSeconds?: number;
+  timeToFirstValidExploitSeconds?: number;
+}
+
+export interface PatchValidation {
+  status: ValidationStatus;
+  evidence?: string;
+  runtimeSeconds?: number;
+}
+
 export interface ContractSubmission {
   contractId: string;
   findings: SubmittedFinding[];
+  exploitValidation?: ExploitValidation;
+  patchValidation?: PatchValidation;
 }
 
 export interface Submission {
@@ -64,6 +83,11 @@ export interface ContractScore {
   submittedFindings: number;
   matchedFindings: number;
   severityCorrect: number;
+  exploitRequired: boolean;
+  exploitPassed: boolean;
+  patchRequired: boolean;
+  patchPassed: boolean;
+  timeToFirstValidExploitSeconds?: number;
 }
 
 export interface BenchmarkResult {
@@ -73,6 +97,9 @@ export interface BenchmarkResult {
   detectionRate: number;
   precision: number;
   severityAccuracy: number;
+  exploitSuccessRate: number;
+  patchSuccessRate: number;
+  medianTimeToFirstValidExploitSeconds: number | null;
   compositeScore: number;
   byContract: ContractScore[];
 }

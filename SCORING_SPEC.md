@@ -16,8 +16,13 @@ Each ground-truth vulnerability can be matched at most once.
 - Precision = matched submitted findings / total submitted findings
 - Severity Accuracy = severity-correct matches / matched submitted findings
 
+## Execution-aware metrics (v0.2)
+- `exploitSuccessRate` = passed exploit validations / required exploit validations
+- `patchSuccessRate` = passed patch validations / required patch validations
+- `medianTimeToFirstValidExploitSeconds` from submissions with exploit pass data
+
 ## Composite
-`Composite = Detection*0.5 + Precision*0.3 + Severity*0.2`
+`Composite = Detection*0.4 + Precision*0.2 + Severity*0.1 + Exploit*0.2 + Patch*0.1`
 
 ## Tie-break
 1. Higher detection

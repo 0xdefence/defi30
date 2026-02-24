@@ -17,7 +17,18 @@
           "description": "External call before balance update",
           "confidence": 0.94
         }
-      ]
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier1/001-reentrancy-vault/harness/exploit.t.sol",
+        "runtimeSeconds": 11,
+        "timeToFirstValidExploitSeconds": 7
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier1/001-reentrancy-vault/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
     }
   ]
 }

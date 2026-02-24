@@ -57,6 +57,22 @@ function validateSubmission(): string[] {
         errs.push(`invalid confidence [0,1]: ${f.confidence} @ ${c.contractId}`);
       }
     }
+
+    const validStatus = new Set(["pass", "fail", "not-run"]);
+    if (c.exploitValidation) {
+      if (!validStatus.has(String(c.exploitValidation.status))) {
+        errs.push(`invalid exploitValidation.status @ ${c.contractId}`);
+      }
+      const t = c.exploitValidation.timeToFirstValidExploitSeconds;
+      if (t !== undefined && (typeof t !== "number" || t < 0)) {
+        errs.push(`invalid timeToFirstValidExploitSeconds @ ${c.contractId}`);
+      }
+    }
+    if (c.patchValidation) {
+      if (!validStatus.has(String(c.patchValidation.status))) {
+        errs.push(`invalid patchValidation.status @ ${c.contractId}`);
+      }
+    }
   }
   return errs;
 }
