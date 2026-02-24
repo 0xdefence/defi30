@@ -17,5 +17,7 @@
       "location": "emergencySetOwner(address)",
       "description": "Uses tx.origin for authorization"
     }
-  ]
+  ],
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true
 }

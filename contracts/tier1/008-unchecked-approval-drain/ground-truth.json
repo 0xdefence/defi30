@@ -17,5 +17,7 @@
       "location": "setUnlimitedApproval()",
       "description": "Unrestricted unlimited approval can enable drain patterns"
     }
-  ]
+  ],
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true
 }

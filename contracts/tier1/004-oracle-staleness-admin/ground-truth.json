@@ -17,5 +17,7 @@
       "location": "setFeed(address)",
       "description": "Admin feed update lacks governance delay/safety controls"
     }
-  ]
+  ],
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true
 }

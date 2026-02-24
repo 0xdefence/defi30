@@ -11,5 +11,7 @@
       "description": "Oracle freshness/staleness not validated",
       "attackVector": "price-manipulation"
     }
-  ]
+  ],
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true
 }

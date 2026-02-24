@@ -10,5 +10,7 @@
       "location": "withdraw()",
       "description": "State update occurs after external call"
     }
-  ]
+  ],
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true
 }
