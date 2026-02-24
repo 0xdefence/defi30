@@ -1,0 +1,289 @@
+{
+  "toolName": "0xDefend",
+  "toolVersion": "v1",
+  "timestamp": "2026-02-23T00:00:00Z",
+  "contracts": [
+    {
+      "contractId": "001-reentrancy-vault",
+      "findings": [
+        {
+          "title": "Reentrancy in withdraw",
+          "class": "reentrancy",
+          "severity": "critical",
+          "location": "withdraw()",
+          "description": "State is updated after external call",
+          "confidence": 0.93
+        }
+      ],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/001-reentrancy-vault/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/001-reentrancy-vault/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "002-stale-oracle-vault",
+      "findings": [
+        {
+          "title": "Stale oracle accepted",
+          "class": "oracle-manipulation",
+          "severity": "critical",
+          "location": "getPrice()",
+          "description": "No freshness check on oracle value",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/002-stale-oracle-vault/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/002-stale-oracle-vault/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "003-clean-vault",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/003-clean-vault/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/003-clean-vault/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "004-oracle-staleness-admin",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/004-oracle-staleness-admin/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/004-oracle-staleness-admin/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "005-flash-loan-liquidator",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/005-flash-loan-liquidator/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/005-flash-loan-liquidator/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "006-governor-timelock-bypass",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/006-governor-timelock-bypass/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/006-governor-timelock-bypass/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "007-cross-reentrant",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/007-cross-reentrant/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/007-cross-reentrant/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "008-unchecked-approval-drain",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/008-unchecked-approval-drain/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/008-unchecked-approval-drain/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "009-proxy-collision",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/009-proxy-collision/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/009-proxy-collision/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "010-initializer-exposed",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/010-initializer-exposed/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/010-initializer-exposed/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "011-euler-exchange-rate",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/011-euler-exchange-rate/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/011-euler-exchange-rate/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "012-beanstalk-governance",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/012-beanstalk-governance/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/012-beanstalk-governance/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "013-cream-callback",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/013-cream-callback/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/013-cream-callback/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "014-ronin-access-control",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/014-ronin-access-control/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/014-ronin-access-control/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "015-nomad-initialization",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/015-nomad-initialization/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/015-nomad-initialization/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "016-mango-oracle",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/016-mango-oracle/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/016-mango-oracle/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "017-parity-delegatecall",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/017-parity-delegatecall/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/017-parity-delegatecall/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "018-badger-approval",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/018-badger-approval/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/018-badger-approval/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "019-harvest-price-manipulation",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/019-harvest-price-manipulation/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/019-harvest-price-manipulation/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "020-wormhole-signature",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/020-wormhole-signature/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/020-wormhole-signature/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "{004-oracle-staleness-admin,005-flash-loan-liquidator,006-governor-timelock-bypass,007-cross-reentrant,008-unchecked-approval-drain,009-proxy-collision,010-initializer-exposed}",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/{004-oracle-staleness-admin,005-flash-loan-liquidator,006-governor-timelock-bypass,007-cross-reentrant,008-unchecked-approval-drain,009-proxy-collision,010-initializer-exposed}/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier1/{004-oracle-staleness-admin,005-flash-loan-liquidator,006-governor-timelock-bypass,007-cross-reentrant,008-unchecked-approval-drain,009-proxy-collision,010-initializer-exposed}/harness/patch.t.sol"
+      }
+    },
+    {
+      "contractId": "{011-euler-exchange-rate,012-beanstalk-governance,013-cream-callback,014-ronin-access-control,015-nomad-initialization,016-mango-oracle,017-parity-delegatecall,018-badger-approval,019-harvest-price-manipulation,020-wormhole-signature}",
+      "findings": [],
+      "exploitValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/{011-euler-exchange-rate,012-beanstalk-governance,013-cream-callback,014-ronin-access-control,015-nomad-initialization,016-mango-oracle,017-parity-delegatecall,018-badger-approval,019-harvest-price-manipulation,020-wormhole-signature}/harness/exploit.t.sol"
+      },
+      "patchValidation": {
+        "status": "not-run",
+        "evidence": "foundry://contracts/tier2/{011-euler-exchange-rate,012-beanstalk-governance,013-cream-callback,014-ronin-access-control,015-nomad-initialization,016-mango-oracle,017-parity-delegatecall,018-badger-approval,019-harvest-price-manipulation,020-wormhole-signature}/harness/patch.t.sol"
+      }
+    }
+  ]
+}
