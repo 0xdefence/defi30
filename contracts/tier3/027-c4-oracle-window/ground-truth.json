@@ -1,0 +1,17 @@
+{
+  "contractName": "C4OracleWindow",
+  "tier": 3,
+  "source": "https://code4rena.com/reports",
+  "totalExpectedFindings": 1,
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "oracle-manipulation",
+      "severity": "high",
+      "location": "readPrice()",
+      "description": "Single-spot read without time window allows manipulation"
+    }
+  ]
+}

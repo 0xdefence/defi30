@@ -1,0 +1,17 @@
+{
+  "contractName": "C4RoundingDrift",
+  "tier": 3,
+  "source": "https://code4rena.com/reports",
+  "totalExpectedFindings": 1,
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "precision-loss",
+      "severity": "high",
+      "location": "mintShares(uint256)",
+      "description": "Integer rounding favors attacker in repeated minting"
+    }
+  ]
+}

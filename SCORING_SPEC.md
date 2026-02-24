@@ -21,6 +21,10 @@ Each ground-truth vulnerability can be matched at most once.
 - `patchSuccessRate` = passed patch validations / required patch validations
 - `medianTimeToFirstValidExploitSeconds` from submissions with exploit pass data
 
+## Confidence calibration metrics
+- `brierScore` over submitted finding confidence vs match correctness
+- `expectedCalibrationError` (ECE@10 bins)
+
 ## Composite
 `Composite = Detection*0.4 + Precision*0.2 + Severity*0.1 + Exploit*0.2 + Patch*0.1`
 

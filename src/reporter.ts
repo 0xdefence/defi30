@@ -11,6 +11,8 @@ export function toMarkdown(result: BenchmarkResult): string {
   lines.push(`- Exploit Success Rate: ${(result.exploitSuccessRate * 100).toFixed(2)}%`);
   lines.push(`- Patch Success Rate: ${(result.patchSuccessRate * 100).toFixed(2)}%`);
   lines.push(`- Median Time to First Valid Exploit: ${result.medianTimeToFirstValidExploitSeconds ?? "n/a"}s`);
+  lines.push(`- Brier Score (confidence): ${result.brierScore.toFixed(4)}`);
+  lines.push(`- Expected Calibration Error (ECE@10): ${result.expectedCalibrationError.toFixed(4)}`);
   lines.push(`- Composite Score: ${(result.compositeScore * 100).toFixed(2)}`);
   lines.push("");
   lines.push("| Contract | Tier | GT | Matched | Submitted | Precision-Matched | Severity Correct | Exploit | Patch | TTFV(s) |");

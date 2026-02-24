@@ -100,6 +100,8 @@ export interface BenchmarkResult {
   exploitSuccessRate: number;
   patchSuccessRate: number;
   medianTimeToFirstValidExploitSeconds: number | null;
+  brierScore: number;
+  expectedCalibrationError: number;
   compositeScore: number;
   byContract: ContractScore[];
 }

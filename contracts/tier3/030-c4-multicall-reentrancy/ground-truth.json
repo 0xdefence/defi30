@@ -1,0 +1,17 @@
+{
+  "contractName": "C4MulticallReentrancy",
+  "tier": 3,
+  "source": "https://code4rena.com/reports",
+  "totalExpectedFindings": 1,
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "reentrancy",
+      "severity": "critical",
+      "location": "multicall(bytes[])",
+      "description": "Reentrant multicall can re-enter stateful methods in same tx"
+    }
+  ]
+}

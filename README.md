@@ -86,3 +86,12 @@ Composite = `(Detection * 0.4) + (Precision * 0.2) + (Severity * 0.1) + (Exploit
 See [METHODOLOGY.md](./METHODOLOGY.md) and [docs/EVALUATION_REALISM_MODE.md](./docs/EVALUATION_REALISM_MODE.md).
 
 Taxonomy rules: [TAXONOMY.md](./TAXONOMY.md)
+
+## Leaderboards (track separation)
+
+DeFi-30 publishes two separate tracks and does **not** merge them:
+
+1. Detect-only track (`results/LEADERBOARD.md`)
+2. Realism track (`results/LEADERBOARD_REALISM.md`)
+
+Scores across tracks are not directly comparable.

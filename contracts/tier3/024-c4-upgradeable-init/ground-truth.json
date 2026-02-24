@@ -1,0 +1,17 @@
+{
+  "contractName": "C4UpgradeableInit",
+  "tier": 3,
+  "source": "https://code4rena.com/reports",
+  "totalExpectedFindings": 1,
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "initialisation",
+      "severity": "critical",
+      "location": "initialize(address)",
+      "description": "Initializer callable more than once enables ownership reset"
+    }
+  ]
+}

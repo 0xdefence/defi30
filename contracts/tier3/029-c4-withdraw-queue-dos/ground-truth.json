@@ -1,0 +1,17 @@
+{
+  "contractName": "C4WithdrawQueueDos",
+  "tier": 3,
+  "source": "https://code4rena.com/reports",
+  "totalExpectedFindings": 1,
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "denial-of-service",
+      "severity": "high",
+      "location": "process(uint256)",
+      "description": "Unbounded queue processing enables gas exhaustion DoS"
+    }
+  ]
+}

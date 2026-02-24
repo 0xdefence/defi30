@@ -1,6 +1,6 @@
 {
-  "version": "v0.2.0-alpha",
-  "datasetHash": "b20b2bc3280c48e2e6280b0048c8f7e9f54cac8b856321190a6744affef31278",
+  "version": "v0.2.1-alpha",
+  "datasetHash": "c2ccce5090512fa166c666a483090ad6c52856259a8bf3f05482e1ef14016790",
   "files": [
     {
       "path": "contracts/tier1/001-reentrancy-vault/contract.sol",
@@ -185,6 +185,62 @@
     {
       "path": "contracts/tier3/023-c4-signature-replay/ground-truth.json",
       "sha256": "506b61bb489200fd102fb9f7f662933235629e147eefac13f9f5819bb97dfb83"
+    },
+    {
+      "path": "contracts/tier3/024-c4-upgradeable-init/contract.sol",
+      "sha256": "f3177ca4b407bb9d3d8493507d8168c6c8b9bbea2ef4dca8eab6e1d2be635433"
+    },
+    {
+      "path": "contracts/tier3/024-c4-upgradeable-init/ground-truth.json",
+      "sha256": "8a2afcdff538b58441e763c5249fcc0066ea5881ca37cd051bba77d4f1bee16e"
+    },
+    {
+      "path": "contracts/tier3/025-c4-rounding-drift/contract.sol",
+      "sha256": "b38e7c31e54b5776f801dd4d335046254ed724a01c97c43a8bf883c49da2c17c"
+    },
+    {
+      "path": "contracts/tier3/025-c4-rounding-drift/ground-truth.json",
+      "sha256": "cdcec44953d5129168e30860c1744f27eab5cae04e7e89bceaf4663ef98a36ed"
+    },
+    {
+      "path": "contracts/tier3/026-c4-manager-auth/contract.sol",
+      "sha256": "dc2898b330b577e2ef7fede10c774a4b59ee9b561d2c0485637e9885bf8905c3"
+    },
+    {
+      "path": "contracts/tier3/026-c4-manager-auth/ground-truth.json",
+      "sha256": "bc6a64775c9181183b57adeb218627082e09d6d1099ec21a02053a4fed326c0c"
+    },
+    {
+      "path": "contracts/tier3/027-c4-oracle-window/contract.sol",
+      "sha256": "af3132b85e7f6c7f87b49ec2c193b5345cae11e71fd4c226df8dc70cd07b08a8"
+    },
+    {
+      "path": "contracts/tier3/027-c4-oracle-window/ground-truth.json",
+      "sha256": "0bde02b4b73c70cb85e2f949c68cb1df42f8379cc512ed33e04c3faa40d34922"
+    },
+    {
+      "path": "contracts/tier3/028-c4-permit-domain/contract.sol",
+      "sha256": "2ce67bc5a7314fa4a3319bc9504c0a510adf513d97cb2745102fb71ebdc6f7e9"
+    },
+    {
+      "path": "contracts/tier3/028-c4-permit-domain/ground-truth.json",
+      "sha256": "3ae73e0f57c3b12da746da85437f3a4cb6870738304ea115023ff703488f8522"
+    },
+    {
+      "path": "contracts/tier3/029-c4-withdraw-queue-dos/contract.sol",
+      "sha256": "052b369f2e8f96d6c3ff74d374af862df286897ff4dd0cced1b0245eb1224bf6"
+    },
+    {
+      "path": "contracts/tier3/029-c4-withdraw-queue-dos/ground-truth.json",
+      "sha256": "66c139ba4cd6d014c9161cd1b523fc8941b826660fbc26b5056053f229037512"
+    },
+    {
+      "path": "contracts/tier3/030-c4-multicall-reentrancy/contract.sol",
+      "sha256": "e934f6cb92548e286af8e130c5ca82378a296298cedc76e71e899117c19c9a3a"
+    },
+    {
+      "path": "contracts/tier3/030-c4-multicall-reentrancy/ground-truth.json",
+      "sha256": "e01a5e6b257b4882fe64fead362b771f15fc277855e135db98d6d1ef43b71a19"
     }
   ]
 }

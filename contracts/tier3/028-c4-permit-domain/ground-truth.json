@@ -1,0 +1,17 @@
+{
+  "contractName": "C4PermitDomain",
+  "tier": 3,
+  "source": "https://code4rena.com/reports",
+  "totalExpectedFindings": 1,
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "signature-verification",
+      "severity": "high",
+      "location": "permit(bytes32,bytes)",
+      "description": "Permit digest omits domain separator enabling cross-context replay"
+    }
+  ]
+}

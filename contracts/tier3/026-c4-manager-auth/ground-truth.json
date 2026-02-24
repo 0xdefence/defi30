@@ -1,0 +1,17 @@
+{
+  "contractName": "C4ManagerAuth",
+  "tier": 3,
+  "source": "https://code4rena.com/reports",
+  "totalExpectedFindings": 1,
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "access-control",
+      "severity": "critical",
+      "location": "setManager(address)",
+      "description": "Missing onlyOwner check allows manager takeover"
+    }
+  ]
+}

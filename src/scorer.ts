@@ -25,6 +25,8 @@ export function scoreSubmission(submission: Submission, gtMap: Map<string, Groun
   let patchRequired = 0;
   let patchPassed = 0;
   const ttfv: number[] = [];
+  const brierTerms: number[] = [];
+  const bins: { count: number; confSum: number; correctSum: number }[] = Array.from({ length: 10 }, () => ({ count: 0, confSum: 0, correctSum: 0 }));
 
   for (const c of submission.contracts) {
     const gt = gtMap.get(c.contractId);
@@ -46,6 +48,14 @@ export function scoreSubmission(submission: Submission, gtMap: Map<string, Groun
           break;
         }
       }
+
+      const correct = Boolean(matched);
+      const conf = typeof f.confidence === "number" ? Math.min(1, Math.max(0, f.confidence)) : 0.5;
+      brierTerms.push((conf - (correct ? 1 : 0)) ** 2);
+      const bi = Math.min(9, Math.floor(conf * 10));
+      bins[bi].count += 1;
+      bins[bi].confSum += conf;
+      bins[bi].correctSum += correct ? 1 : 0;
 
       if (matched) {
         used.add(matched.id);
@@ -102,6 +112,19 @@ export function scoreSubmission(submission: Submission, gtMap: Map<string, Groun
   const medianTtfv = ttfv.length
     ? ttfv.sort((a, b) => a - b)[Math.floor(ttfv.length / 2)]
     : null;
+  const brierScore = brierTerms.length ? brierTerms.reduce((a, b) => a + b, 0) / brierTerms.length : 0;
+
+  // ECE(10 bins)
+  const totalPreds = bins.reduce((a, b) => a + b.count, 0);
+  let ece = 0;
+  if (totalPreds > 0) {
+    for (const b of bins) {
+      if (!b.count) continue;
+      const acc = b.correctSum / b.count;
+      const avgConf = b.confSum / b.count;
+      ece += (b.count / totalPreds) * Math.abs(acc - avgConf);
+    }
+  }
 
   // v0.2 composite weights (execution-aware)
   const composite =
@@ -121,6 +144,8 @@ export function scoreSubmission(submission: Submission, gtMap: Map<string, Groun
     exploitSuccessRate: round4(exploitRate),
     patchSuccessRate: round4(patchRate),
     medianTimeToFirstValidExploitSeconds: medianTtfv,
+    brierScore: round4(brierScore),
+    expectedCalibrationError: round4(ece),
     compositeScore: round4(composite),
     byContract,
   };
