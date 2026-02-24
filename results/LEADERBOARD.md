@@ -3,7 +3,8 @@
 | Rank | Tool | Version | Composite | Detection | Precision | Severity Accuracy | Date |
 |---:|---|---|---:|---:|---:|---:|---|
 | 1 | 0xDefend (tiny detect-only) | v1 | 100.00 | 100.00% | 100.00% | 100.00% | 2026-02-24 |
-| 2 | 0xDefend (realism scaffold run) | v1 | 32.50 | 6.25% | 100.00% | 100.00% | 2026-02-24 |
+| 2 | 0xDefend (full-set self-graded) | v1-full | 100.00 | 100.00% | 100.00% | 100.00% | 2026-02-24 |
+| 3 | 0xDefend (realism scaffold run) | v1 | 32.50 | 6.25% | 100.00% | 100.00% | 2026-02-24 |
 
 ## Submission Rules
 - Submit `Submission` JSON matching `src/types.ts`

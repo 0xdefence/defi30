@@ -1,0 +1,767 @@
+{
+  "toolName": "0xDefend",
+  "toolVersion": "v1-full",
+  "timestamp": "2026-02-24T12:45:40Z",
+  "contracts": [
+    {
+      "contractId": "001-reentrancy-vault",
+      "findings": [
+        {
+          "title": "VULN-001 reentrancy",
+          "class": "reentrancy",
+          "severity": "critical",
+          "location": "withdraw()",
+          "description": "State update occurs after external call",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier1/001-reentrancy-vault/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier1/001-reentrancy-vault/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "002-stale-oracle-vault",
+      "findings": [
+        {
+          "title": "VULN-001 oracle-manipulation",
+          "class": "oracle-manipulation",
+          "severity": "critical",
+          "location": "getPrice()",
+          "description": "Oracle freshness/staleness not validated",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier1/002-stale-oracle-vault/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier1/002-stale-oracle-vault/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "003-clean-vault",
+      "findings": []
+    },
+    {
+      "contractId": "004-oracle-staleness-admin",
+      "findings": [
+        {
+          "title": "VULN-001 oracle-manipulation",
+          "class": "oracle-manipulation",
+          "severity": "critical",
+          "location": "getPrice()",
+          "description": "Missing staleness/freshness validation for oracle price",
+          "confidence": 0.9
+        },
+        {
+          "title": "VULN-002 access-control",
+          "class": "access-control",
+          "severity": "high",
+          "location": "setFeed(address)",
+          "description": "Admin feed update lacks governance delay/safety controls",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier1/004-oracle-staleness-admin/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier1/004-oracle-staleness-admin/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "005-flash-loan-liquidator",
+      "findings": [
+        {
+          "title": "VULN-001 price-manipulation",
+          "class": "price-manipulation",
+          "severity": "critical",
+          "location": "liquidate(address)",
+          "description": "Liquidation uses manipulable spot price enabling flash-loan assisted price manipulation",
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "contractId": "006-governor-timelock-bypass",
+      "findings": [
+        {
+          "title": "VULN-001 governance",
+          "class": "governance",
+          "severity": "high",
+          "location": "execute(bytes32)",
+          "description": "Queued actions can execute without waiting timelock duration",
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "contractId": "007-cross-reentrant",
+      "findings": [
+        {
+          "title": "VULN-001 reentrancy",
+          "class": "reentrancy",
+          "severity": "critical",
+          "location": "withdraw(uint256)",
+          "description": "External callback and transfer happen before state update",
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "contractId": "008-unchecked-approval-drain",
+      "findings": [
+        {
+          "title": "VULN-001 unchecked-return",
+          "class": "unchecked-return",
+          "severity": "high",
+          "location": "sweep(address,uint256)",
+          "description": "ERC20 transferFrom return value is ignored",
+          "confidence": 0.9
+        },
+        {
+          "title": "VULN-002 access-control",
+          "class": "access-control",
+          "severity": "high",
+          "location": "setUnlimitedApproval()",
+          "description": "Unrestricted unlimited approval can enable drain patterns",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier1/008-unchecked-approval-drain/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier1/008-unchecked-approval-drain/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "009-proxy-collision",
+      "findings": [
+        {
+          "title": "VULN-001 delegatecall",
+          "class": "delegatecall",
+          "severity": "critical",
+          "location": "fallback()",
+          "description": "Delegatecall-based proxy can expose storage-collision/state corruption risks",
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "contractId": "010-initializer-exposed",
+      "findings": [
+        {
+          "title": "VULN-001 initialisation",
+          "class": "initialisation",
+          "severity": "high",
+          "location": "initialize(address)",
+          "description": "Initializer is publicly callable and not single-use enforced",
+          "confidence": 0.9
+        },
+        {
+          "title": "VULN-002 access-control",
+          "class": "access-control",
+          "severity": "high",
+          "location": "emergencySetOwner(address)",
+          "description": "Uses tx.origin for authorization",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier1/010-initializer-exposed/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier1/010-initializer-exposed/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "011-euler-exchange-rate",
+      "findings": [
+        {
+          "title": "VULN-001 price-manipulation",
+          "class": "price-manipulation",
+          "severity": "critical",
+          "location": "collateralValue(address)",
+          "description": "Collateral valuation relies on instantly manipulable exchange rate",
+          "confidence": 0.9
+        },
+        {
+          "title": "VULN-002 flash-loan",
+          "class": "flash-loan",
+          "severity": "critical",
+          "location": "borrow(uint256)",
+          "description": "Borrow checks can be bypassed with flash-liquidity donation that temporarily inflates exchange rate",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier2/011-euler-exchange-rate/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier2/011-euler-exchange-rate/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "012-beanstalk-governance",
+      "findings": [
+        {
+          "title": "VULN-001 governance",
+          "class": "governance",
+          "severity": "critical",
+          "location": "vote(uint256)",
+          "description": "Voting power uses current token balance without snapshot, enabling flash-loan vote inflation",
+          "confidence": 0.9
+        },
+        {
+          "title": "VULN-002 governance",
+          "class": "governance",
+          "severity": "critical",
+          "location": "execute(uint256)",
+          "description": "Execution has no timelock/cooldown after quorum, enabling immediate malicious proposal execution",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier2/012-beanstalk-governance/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier2/012-beanstalk-governance/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "013-cream-callback",
+      "findings": [
+        {
+          "title": "VULN-001 reentrancy",
+          "class": "reentrancy",
+          "severity": "critical",
+          "location": "borrow(uint256)",
+          "description": "External callback executes before debt accounting update",
+          "confidence": 0.9
+        },
+        {
+          "title": "VULN-002 access-control",
+          "class": "access-control",
+          "severity": "high",
+          "location": "borrow(uint256)",
+          "description": "Borrow flow lacks reentrancy guard around externally controlled callback",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier2/013-cream-callback/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier2/013-cream-callback/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "014-ronin-access-control",
+      "findings": [
+        {
+          "title": "VULN-001 access-control",
+          "class": "access-control",
+          "severity": "critical",
+          "location": "setThreshold(uint256)",
+          "description": "Threshold security parameter can be dangerously lowered without robust governance guardrails",
+          "confidence": 0.9
+        },
+        {
+          "title": "VULN-002 signature-verification",
+          "class": "signature-verification",
+          "severity": "critical",
+          "location": "executeTransfer(bytes32,address,uint256,address[])",
+          "description": "Transfer authorization depends on weak signer-count logic and mutable threshold assumptions",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier2/014-ronin-access-control/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier2/014-ronin-access-control/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "015-nomad-initialization",
+      "findings": [
+        {
+          "title": "VULN-001 initialisation",
+          "class": "initialisation",
+          "severity": "critical",
+          "location": "initialize(bytes32,address)",
+          "description": "Initializer is not one-time protected and can be called repeatedly",
+          "confidence": 0.9
+        },
+        {
+          "title": "VULN-002 access-control",
+          "class": "access-control",
+          "severity": "critical",
+          "location": "initialize(bytes32,address)",
+          "description": "Trusted root is accepted without validation, allowing invalid/zero-root trust bootstrap",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier2/015-nomad-initialization/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier2/015-nomad-initialization/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "016-mango-oracle",
+      "findings": [
+        {
+          "title": "VULN-001 oracle-manipulation",
+          "class": "oracle-manipulation",
+          "severity": "critical",
+          "location": "spotPrice()",
+          "description": "Oracle uses manipulable AMM spot reserve ratio without TWAP/outlier protections",
+          "confidence": 0.9
+        },
+        {
+          "title": "VULN-002 price-manipulation",
+          "class": "price-manipulation",
+          "severity": "critical",
+          "location": "borrow(uint256)",
+          "description": "Borrow gate trusts manipulated spot-derived collateral value",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier2/016-mango-oracle/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier2/016-mango-oracle/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "017-parity-delegatecall",
+      "findings": [
+        {
+          "title": "VULN-001 delegatecall",
+          "class": "delegatecall",
+          "severity": "critical",
+          "location": "fallback()",
+          "description": "Proxy fallback blindly delegatecalls to mutable library address, exposing full storage/control surface",
+          "confidence": 0.9
+        },
+        {
+          "title": "VULN-002 initialisation",
+          "class": "initialisation",
+          "severity": "critical",
+          "location": "initWallet(address)",
+          "description": "Initializer is callable through proxy context and can reset owner, enabling takeover and destructive actions",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier2/017-parity-delegatecall/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier2/017-parity-delegatecall/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "018-badger-approval",
+      "findings": [
+        {
+          "title": "VULN-001 access-control",
+          "class": "access-control",
+          "severity": "critical",
+          "location": "approveAndPull(address,uint256)",
+          "description": "Untrusted caller-controlled spender is granted unlimited token approval, enabling downstream drain",
+          "confidence": 0.9
+        },
+        {
+          "title": "VULN-002 unchecked-return",
+          "class": "unchecked-return",
+          "severity": "high",
+          "location": "approveAndPull(address,uint256)",
+          "description": "ERC20 approve/transferFrom return values are ignored, allowing silent failure and unsafe assumptions",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier2/018-badger-approval/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier2/018-badger-approval/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "019-harvest-price-manipulation",
+      "findings": [
+        {
+          "title": "VULN-001 oracle-manipulation",
+          "class": "oracle-manipulation",
+          "severity": "critical",
+          "location": "spot()",
+          "description": "Vault accounting consumes manipulable AMM spot price without robust oracle protections",
+          "confidence": 0.9
+        },
+        {
+          "title": "VULN-002 price-manipulation",
+          "class": "price-manipulation",
+          "severity": "critical",
+          "location": "deposit(uint256)",
+          "description": "Share minting can be gamed by temporary spot-price distortion (flash-liquidity style)",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier2/019-harvest-price-manipulation/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier2/019-harvest-price-manipulation/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "020-wormhole-signature",
+      "findings": [
+        {
+          "title": "VULN-001 signature-verification",
+          "class": "signature-verification",
+          "severity": "critical",
+          "location": "execute(address,uint256,uint256,bytes)",
+          "description": "Execution path accepts malformed/zero-signer verification outcomes",
+          "confidence": 0.9
+        },
+        {
+          "title": "VULN-002 access-control",
+          "class": "access-control",
+          "severity": "critical",
+          "location": "execute(address,uint256,uint256,bytes)",
+          "description": "Single-signer authorization and weak domain separation enable forged or replayable approvals",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier2/020-wormhole-signature/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier2/020-wormhole-signature/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "021-c4-reward-reentrancy",
+      "findings": [
+        {
+          "title": "VULN-001 reentrancy",
+          "class": "reentrancy",
+          "severity": "critical",
+          "location": "claim()",
+          "description": "External call occurs before reward balance is zeroed",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier3/021-c4-reward-reentrancy/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier3/021-c4-reward-reentrancy/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "022-c4-oracle-decimals",
+      "findings": [
+        {
+          "title": "VULN-001 precision-loss",
+          "class": "precision-loss",
+          "severity": "high",
+          "location": "collateralValue(address)",
+          "description": "Oracle decimals are mis-scaled, causing collateral overvaluation",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier3/022-c4-oracle-decimals/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier3/022-c4-oracle-decimals/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "023-c4-signature-replay",
+      "findings": [
+        {
+          "title": "VULN-001 signature-verification",
+          "class": "signature-verification",
+          "severity": "critical",
+          "location": "execute(address,uint256,bytes32,bytes)",
+          "description": "Missing replay protection allows reusing a valid signature multiple times",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier3/023-c4-signature-replay/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier3/023-c4-signature-replay/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "024-c4-upgradeable-init",
+      "findings": [
+        {
+          "title": "VULN-001 initialisation",
+          "class": "initialisation",
+          "severity": "critical",
+          "location": "initialize(address)",
+          "description": "Initializer callable more than once enables ownership reset",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier3/024-c4-upgradeable-init/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier3/024-c4-upgradeable-init/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "025-c4-rounding-drift",
+      "findings": [
+        {
+          "title": "VULN-001 precision-loss",
+          "class": "precision-loss",
+          "severity": "high",
+          "location": "mintShares(uint256)",
+          "description": "Integer rounding favors attacker in repeated minting",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier3/025-c4-rounding-drift/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier3/025-c4-rounding-drift/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "026-c4-manager-auth",
+      "findings": [
+        {
+          "title": "VULN-001 access-control",
+          "class": "access-control",
+          "severity": "critical",
+          "location": "setManager(address)",
+          "description": "Missing onlyOwner check allows manager takeover",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier3/026-c4-manager-auth/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier3/026-c4-manager-auth/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "027-c4-oracle-window",
+      "findings": [
+        {
+          "title": "VULN-001 oracle-manipulation",
+          "class": "oracle-manipulation",
+          "severity": "high",
+          "location": "readPrice()",
+          "description": "Single-spot read without time window allows manipulation",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier3/027-c4-oracle-window/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier3/027-c4-oracle-window/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "028-c4-permit-domain",
+      "findings": [
+        {
+          "title": "VULN-001 signature-verification",
+          "class": "signature-verification",
+          "severity": "high",
+          "location": "permit(bytes32,bytes)",
+          "description": "Permit digest omits domain separator enabling cross-context replay",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier3/028-c4-permit-domain/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier3/028-c4-permit-domain/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "029-c4-withdraw-queue-dos",
+      "findings": [
+        {
+          "title": "VULN-001 denial-of-service",
+          "class": "denial-of-service",
+          "severity": "high",
+          "location": "process(uint256)",
+          "description": "Unbounded queue processing enables gas exhaustion DoS",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier3/029-c4-withdraw-queue-dos/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier3/029-c4-withdraw-queue-dos/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    },
+    {
+      "contractId": "030-c4-multicall-reentrancy",
+      "findings": [
+        {
+          "title": "VULN-001 reentrancy",
+          "class": "reentrancy",
+          "severity": "critical",
+          "location": "multicall(bytes[])",
+          "description": "Reentrant multicall can re-enter stateful methods in same tx",
+          "confidence": 0.9
+        }
+      ],
+      "exploitValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier3/030-c4-multicall-reentrancy/harness/exploit.t.sol",
+        "runtimeSeconds": 8,
+        "timeToFirstValidExploitSeconds": 5
+      },
+      "patchValidation": {
+        "status": "pass",
+        "evidence": "foundry://contracts/tier3/030-c4-multicall-reentrancy/harness/patch.t.sol",
+        "runtimeSeconds": 6
+      }
+    }
+  ]
+}
