@@ -27,6 +27,48 @@ jobs:
       - name: Run realism harness
         run: ./scripts/run-realism.sh ./results/0xdefend-v1.json
 
+      - name: Enforce required realism validations are executed
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('.')
+          submission = json.loads((root / 'results' / 'submission-with-realism.json').read_text())
+          sub_map = {c.get('contractId'): c for c in submission.get('contracts', [])}
+
+          missing = []
+          for tier in ['tier1', 'tier2', 'tier3']:
+            tdir = root / 'contracts' / tier
+            if not tdir.exists():
+              continue
+            for case in tdir.iterdir():
+              gt_path = case / 'ground-truth.json'
+              if not case.is_dir() or not gt_path.exists():
+                continue
+              gt = json.loads(gt_path.read_text())
+              cid = case.name
+              sub = sub_map.get(cid, {})
+
+              if gt.get('exploitValidationRequired'):
+                status = (sub.get('exploitValidation') or {}).get('status')
+                if status == 'not-run' or status is None:
+                  missing.append(f'{cid}: exploitValidation not executed')
+
+              if gt.get('patchValidationRequired'):
+                status = (sub.get('patchValidation') or {}).get('status')
+                if status == 'not-run' or status is None:
+                  missing.append(f'{cid}: patchValidation not executed')
+
+          if missing:
+            print('Required realism validations were not executed:')
+            for m in missing:
+              print('-', m)
+            raise SystemExit(1)
+
+          print('All required realism validations executed.')
+          PY
+
       - name: Score realism submission
         run: bun run src/cli.ts score ./results/submission-with-realism.json --strict
 
