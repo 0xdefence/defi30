@@ -1,9 +1,23 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-// TODO: implement patched variant for 015-nomad-initialization
-contract Patched_015_nomad_initialization {
-    function status() external pure returns (string memory) {
-        return "patched-placeholder";
+contract NomadInitializationPatched {
+    bytes32 public trustedRoot;
+    bool public initialized;
+    address public owner;
+
+    function initialize(bytes32 _trustedRoot, address _owner) external {
+        require(!initialized, "already initialized");
+        require(_trustedRoot != bytes32(0), "zero root");
+        require(_owner != address(0), "owner=0");
+        trustedRoot = _trustedRoot;
+        owner = _owner;
+        initialized = true;
+    }
+
+    function process(bytes32 messageHash, bytes32 root) external view {
+        require(initialized, "not initialized");
+        require(root == trustedRoot, "invalid root");
+        require(messageHash != bytes32(0), "bad message");
     }
 }

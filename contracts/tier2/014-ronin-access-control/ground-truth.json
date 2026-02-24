@@ -18,5 +18,7 @@
       "location": "executeTransfer(bytes32,address,uint256,address[])",
       "description": "Transfer authorization depends on weak signer-count logic and mutable threshold assumptions"
     }
-  ]
+  ],
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true
 }

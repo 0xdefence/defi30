@@ -18,5 +18,7 @@
       "location": "initialize(bytes32,address)",
       "description": "Trusted root is accepted without validation, allowing invalid/zero-root trust bootstrap"
     }
-  ]
+  ],
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true
 }

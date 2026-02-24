@@ -19,5 +19,7 @@
       "description": "Execution has no timelock/cooldown after quorum, enabling immediate malicious proposal execution",
       "attackVector": "flash-loan"
     }
-  ]
+  ],
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true
 }

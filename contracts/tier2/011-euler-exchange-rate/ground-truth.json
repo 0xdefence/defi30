@@ -19,5 +19,7 @@
       "description": "Borrow checks can be bypassed with flash-liquidity donation that temporarily inflates exchange rate",
       "attackVector": "flash-loan"
     }
-  ]
+  ],
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true
 }

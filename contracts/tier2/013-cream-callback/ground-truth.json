@@ -19,5 +19,7 @@
       "description": "Borrow flow lacks reentrancy guard around externally controlled callback",
       "attackVector": "callback"
     }
-  ]
+  ],
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true
 }

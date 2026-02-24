@@ -1,0 +1,41 @@
+name: realism-eval
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "contracts/**"
+      - "src/**"
+      - "scripts/run-realism.sh"
+      - "results/0xdefend-v1.json"
+
+jobs:
+  realism:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Setup Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+
+      - name: Install deps
+        run: bun install
+
+      - name: Run realism harness
+        run: ./scripts/run-realism.sh ./results/0xdefend-v1.json
+
+      - name: Score realism submission
+        run: bun run src/cli.ts score ./results/submission-with-realism.json --strict
+
+      - name: Upload realism artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: realism-artifacts
+          path: |
+            results/realism-validation.json
+            results/submission-with-realism.json
+            results/latest-report.json
+            results/latest-report.md
