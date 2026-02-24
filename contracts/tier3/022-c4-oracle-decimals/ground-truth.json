@@ -1,0 +1,17 @@
+{
+  "contractName": "C4OracleDecimals",
+  "tier": 3,
+  "source": "Code4rena public audit pattern (derived)",
+  "totalExpectedFindings": 1,
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "precision-loss",
+      "severity": "high",
+      "location": "collateralValue(address)",
+      "description": "Oracle decimals are mis-scaled, causing collateral overvaluation"
+    }
+  ]
+}

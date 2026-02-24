@@ -19,5 +19,7 @@
       "description": "Share minting can be gamed by temporary spot-price distortion (flash-liquidity style)",
       "attackVector": "flash-loan"
     }
-  ]
+  ],
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true
 }

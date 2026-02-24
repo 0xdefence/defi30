@@ -1,24 +1,16 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-contract WormholeSignaturePatched {
-    mapping(address => bool) public guardian;
+contract C4SignatureReplayPatched {
+    mapping(address => bool) public signer;
     mapping(bytes32 => bool) public consumed;
-    address public owner;
 
-    constructor(address g1) {
-        owner = msg.sender;
-        guardian[g1] = true;
-    }
+    constructor(address s) { signer[s] = true; }
 
-    function execute(address to, uint256 amount, uint256 nonce, bytes calldata sig) external {
-        bytes32 digest = keccak256(abi.encode(block.chainid, address(this), to, amount, nonce));
+    function execute(address to, uint256 amount, bytes32 digest, bytes calldata sig) external {
         require(!consumed[digest], "replay");
-
-        address signer = recover(digest, sig);
-        require(signer != address(0), "bad signer");
-        require(guardian[signer], "bad signer");
-
+        address r = recover(digest, sig);
+        require(signer[r], "bad signer");
         consumed[digest] = true;
         (bool ok,) = to.call{value: amount}("");
         require(ok, "send failed");
@@ -35,7 +27,6 @@ contract WormholeSignaturePatched {
             v := byte(0, mload(add(sig, 0x60)))
         }
         if (v < 27) v += 27;
-        require(v == 27 || v == 28, "bad v");
         return ecrecover(digest, v, r, s);
     }
 

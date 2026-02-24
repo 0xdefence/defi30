@@ -1,0 +1,17 @@
+{
+  "contractName": "C4RewardReentrancy",
+  "tier": 3,
+  "source": "Code4rena public audit pattern (derived)",
+  "totalExpectedFindings": 1,
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "reentrancy",
+      "severity": "critical",
+      "location": "claim()",
+      "description": "External call occurs before reward balance is zeroed"
+    }
+  ]
+}

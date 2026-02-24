@@ -19,5 +19,7 @@
       "description": "Borrow gate trusts manipulated spot-derived collateral value",
       "attackVector": "flash-loan"
     }
-  ]
+  ],
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true
 }

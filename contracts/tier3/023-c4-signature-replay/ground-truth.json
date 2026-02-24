@@ -1,0 +1,17 @@
+{
+  "contractName": "C4SignatureReplay",
+  "tier": 3,
+  "source": "Code4rena public audit pattern (derived)",
+  "totalExpectedFindings": 1,
+  "exploitValidationRequired": true,
+  "patchValidationRequired": true,
+  "knownVulnerabilities": [
+    {
+      "id": "VULN-001",
+      "class": "signature-verification",
+      "severity": "critical",
+      "location": "execute(address,uint256,bytes32,bytes)",
+      "description": "Missing replay protection allows reusing a valid signature multiple times"
+    }
+  ]
+}
