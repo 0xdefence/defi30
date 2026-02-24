@@ -32,6 +32,22 @@ bun install
 bun run src/cli.ts score ./results/0xdefend-v1.json --strict
 ```
 
+## Reproducibility (v0.2 realism track)
+
+```bash
+git clone https://github.com/0xdefence/defi30.git
+cd defi30
+bun install
+./scripts/run-realism.sh ./results/0xdefend-v1.json
+bun run src/cli.ts score ./results/submission-with-realism.json --strict
+```
+
+Generated artifacts:
+- `results/realism-validation.json`
+- `results/submission-with-realism.json`
+- `results/latest-report.json`
+- `results/latest-report.md`
+
 Versioning + integrity:
 - [BENCHMARK_VERSION.md](./BENCHMARK_VERSION.md)
 - [BENCHMARK_CHECKSUMS.json](./BENCHMARK_CHECKSUMS.json)
