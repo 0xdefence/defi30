@@ -1,0 +1,73 @@
+{
+  "runId": "blind-eval-v2-2026-02-24",
+  "timestamp": "2026-02-24T22:51:06Z",
+  "toolName": "0xDefend",
+  "toolVersion": "v2-blind-eval",
+  "scorerMode": "strict",
+  "blindProtocol": {
+    "compliant": true,
+    "groundTruthHidden": true,
+    "hiddenMethod": "renamed ground-truth.json -> ground-truth.json.hidden before analysis, restored before scoring",
+    "groundTruthFilesHidden": 30,
+    "groundTruthFilesRestored": 30,
+    "hiddenAt": "2026-02-24T22:43:59Z",
+    "restoredAt": "2026-02-24T22:51:06Z",
+    "analysisEngine": "Claude Opus 4.6 (6 parallel agents, 5 contracts each)",
+    "noGroundTruthAccessed": true,
+    "feedbackUsed": "results/feedback-training-v2.json (structured from v1 results, no contract-specific rules)"
+  },
+  "runtime": {
+    "analysisParallelAgents": 6,
+    "contractsPerAgent": 5,
+    "totalContracts": 30,
+    "totalFindings": 45
+  },
+  "baseline": {
+    "version": "v1",
+    "compositeScore": 0.5032,
+    "detectionRate": 0.7857,
+    "precision": 0.6111,
+    "severityAccuracy": 0.6667,
+    "brierScore": 0.3108,
+    "expectedCalibrationError": 0.3131,
+    "totalFindings": 54,
+    "matchedFindings": 33
+  },
+  "v2Results": {
+    "compositeScore": 0.5455,
+    "detectionRate": 0.8095,
+    "precision": 0.7556,
+    "severityAccuracy": 0.7059,
+    "brierScore": 0.2142,
+    "expectedCalibrationError": 0.1918,
+    "totalFindings": 45,
+    "matchedFindings": 34
+  },
+  "deltas": {
+    "compositeScore": "+4.23pp",
+    "detectionRate": "+2.38pp",
+    "precision": "+14.45pp",
+    "severityAccuracy": "+3.92pp",
+    "brierScore": "-0.0966 (improved)",
+    "expectedCalibrationError": "-0.1213 (improved)",
+    "falsePositives": "-10 (21 -> 11)"
+  },
+  "artifacts": [
+    "results/feedback-training-v2.json",
+    "results/change-log-v2.md",
+    "results/blind-submission-v2.json",
+    "results/latest-report-v2.json",
+    "results/latest-report-v2.md",
+    "results/improvement-v1-to-v2.md",
+    "results/blind-run-v2-audit.json"
+  ],
+  "agentIds": ["a644036", "a1847a8", "a8bfc7e", "a4feb31", "a49aa5c", "ac5a3eb"],
+  "changesApplied": [
+    "Class taxonomy guidance (ROOT CAUSE vs attack vector)",
+    "Severity calibration rules",
+    "Multi-vulnerability detection instruction",
+    "Location targeting (point to source function)",
+    "Confidence calibration tiers",
+    "Precision improvement (focus on 1-3 most critical)"
+  ]
+}

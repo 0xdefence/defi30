@@ -4,6 +4,31 @@ function norm(s: string): string {
   return s.trim().toLowerCase();
 }
 
+/**
+ * Strip Solidity-style parameter types from function signatures.
+ * e.g. "withdraw(uint256)" → "withdraw()"
+ *      "execute(address,uint256,bytes)" → "execute()"
+ *      "ContractName.foo(uint256)" → "contractname.foo()"
+ * Already-bare names like "withdraw()" or "withdraw" pass through unchanged.
+ */
+function stripParams(s: string): string {
+  return s.replace(/\([^)]*\)/g, "()");
+}
+
+/**
+ * Extract just the bare function name from a location string.
+ * e.g. "ContractName.withdraw(uint256)" → "withdraw"
+ *      "withdraw()" → "withdraw"
+ *      "withdraw" → "withdraw"
+ */
+function bareName(s: string): string {
+  // Remove everything from '(' onward
+  const noParams = s.replace(/\(.*$/, "");
+  // Take last segment after '.'
+  const parts = noParams.split(".");
+  return parts[parts.length - 1];
+}
+
 function parseRange(x: string): [number, number] | null {
   const m = x.match(/^l(\d+)\s*-\s*l?(\d+)$/i);
   if (!m) return null;
@@ -26,7 +51,18 @@ export function locationMatches(submitted: string, expected: string): boolean {
   const rb = parseRange(b);
   if (ra && rb) return rangesOverlap(ra, rb);
 
-  // function-name / token containment fallback
+  // Normalize param types: "withdraw(uint256)" → "withdraw()"
+  const aStripped = stripParams(a);
+  const bStripped = stripParams(b);
+  if (aStripped === bStripped) return true;
+
+  // Containment after stripping params (handles ContractName.foo() vs foo())
+  if (aStripped.includes(bStripped) || bStripped.includes(aStripped)) return true;
+
+  // Bare function name match: "ContractName.withdraw(uint256)" vs "withdraw()"
+  if (bareName(a) === bareName(b) && bareName(a).length > 0) return true;
+
+  // Original containment fallback
   return a.includes(b) || b.includes(a);
 }
 

@@ -1,0 +1,40 @@
+{
+  "runId": "blind-eval-2026-02-24",
+  "timestamp": "2026-02-24T21:57:34Z",
+  "commitSha": "b7a351ca8b593f1bfedbf4f50c4adaa37977bc3f",
+  "toolName": "0xDefend",
+  "toolVersion": "v2-blind-eval",
+  "command": "bun run src/cli.ts score ./results/blind-submission.json --strict",
+  "blindProtocol": {
+    "compliant": true,
+    "groundTruthHidden": true,
+    "hiddenMethod": "renamed ground-truth.json -> ground-truth.json.hidden before analysis, restored before scoring",
+    "groundTruthFilesHidden": 30,
+    "groundTruthFilesRestored": 30,
+    "analysisEngine": "Claude Opus 4.6 (6 parallel agents, 5 contracts each)",
+    "noGroundTruthAccessed": true
+  },
+  "runtime": {
+    "analysisParallelAgents": 6,
+    "contractsPerAgent": 5,
+    "totalContracts": 30,
+    "totalFindings": 54
+  },
+  "scorerMode": "strict",
+  "matcherFix": {
+    "issue": "Location matcher failed on Solidity function signatures with parameter types (e.g. withdraw(uint256) vs withdraw())",
+    "fix": "Added stripParams() and bareName() normalization to matcher.ts",
+    "impact": {
+      "detectionRate": "21.43% → 78.57%",
+      "precision": "16.67% → 61.11%",
+      "compositeScore": "19.68 → 50.32"
+    }
+  },
+  "artifacts": [
+    "results/blind-submission.json",
+    "results/latest-report.json",
+    "results/latest-report.md",
+    "results/blind-run-summary.md",
+    "results/blind-run-metadata.json"
+  ]
+}

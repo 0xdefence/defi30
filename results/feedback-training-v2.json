@@ -1,0 +1,303 @@
+{
+  "version": "v2",
+  "baselineVersion": "v1",
+  "baselineComposite": 50.32,
+  "baselineDetectionRate": 0.7857,
+  "baselinePrecision": 0.6111,
+  "baselineSeverityAccuracy": 0.6667,
+  "totalGroundTruth": 42,
+  "totalMatched": 33,
+  "totalSubmitted": 54,
+  "falseNegatives": [
+    {
+      "contractId": "005-flash-loan-liquidator",
+      "gtClass": "price-manipulation",
+      "gtSeverity": "critical",
+      "gtLocation": "liquidate(address)",
+      "submittedClass": "flash-loan",
+      "submittedLocation": "FlashLoanLiquidator.liquidate()",
+      "mismatchType": "CLASS_MISMATCH",
+      "pattern": "Agent classified by attack vector (flash-loan) instead of vulnerability class (price-manipulation). GT has attackVector field for flash-loan."
+    },
+    {
+      "contractId": "011-euler-exchange-rate",
+      "gtId": "VULN-001",
+      "gtClass": "price-manipulation",
+      "gtSeverity": "critical",
+      "gtLocation": "collateralValue(address)",
+      "submittedClass": "oracle-manipulation",
+      "submittedLocation": "donate()",
+      "mismatchType": "CLASS_AND_LOCATION_MISMATCH",
+      "pattern": "Agent focused on the donate() mechanism rather than the vulnerable collateralValue() function. Class should be price-manipulation (exchange rate manipulation via donation), not oracle-manipulation."
+    },
+    {
+      "contractId": "011-euler-exchange-rate",
+      "gtId": "VULN-002",
+      "gtClass": "flash-loan",
+      "gtSeverity": "critical",
+      "gtLocation": "borrow(uint256)",
+      "submittedClass": "reentrancy",
+      "submittedLocation": "borrow()",
+      "mismatchType": "CLASS_MISMATCH",
+      "pattern": "Agent saw the external call pattern and classified as reentrancy. GT classifies as flash-loan because the primary attack is flash-liquidity donation to inflate exchange rate before borrowing."
+    },
+    {
+      "contractId": "012-beanstalk-governance",
+      "gtId": "VULN-001",
+      "gtClass": "governance",
+      "gtSeverity": "critical",
+      "gtLocation": "vote(uint256)",
+      "submittedClass": "flash-loan",
+      "submittedLocation": "vote()",
+      "mismatchType": "CLASS_MISMATCH",
+      "pattern": "Agent classified vote manipulation as flash-loan. GT classifies as governance because the fundamental bug is using current balances instead of snapshots for voting power."
+    },
+    {
+      "contractId": "013-cream-callback",
+      "gtId": "VULN-002",
+      "gtClass": "access-control",
+      "gtSeverity": "high",
+      "gtLocation": "borrow(uint256)",
+      "submittedClass": null,
+      "submittedLocation": null,
+      "mismatchType": "MISSING",
+      "pattern": "Agent found the reentrancy but missed the secondary access-control finding: borrow flow lacks reentrancy guard around externally controlled callback."
+    },
+    {
+      "contractId": "015-nomad-initialization",
+      "gtId": "VULN-002",
+      "gtClass": "access-control",
+      "gtSeverity": "critical",
+      "gtLocation": "initialize(bytes32,address)",
+      "submittedClass": "initialisation",
+      "submittedLocation": "initialize()",
+      "mismatchType": "CLASS_MISMATCH",
+      "pattern": "Agent classified both vulnerabilities as initialisation. GT has VULN-002 as access-control because accepting an unvalidated trusted root is an access-control concern, distinct from the re-initialization bug."
+    },
+    {
+      "contractId": "016-mango-oracle",
+      "gtId": "VULN-002",
+      "gtClass": "price-manipulation",
+      "gtSeverity": "critical",
+      "gtLocation": "borrow(uint256)",
+      "submittedClass": "flash-loan",
+      "submittedLocation": "borrow()",
+      "mismatchType": "CLASS_MISMATCH",
+      "pattern": "Agent classified borrow's reliance on manipulated price as flash-loan. GT classifies as price-manipulation because the vulnerability is trusting a manipulated spot-derived collateral value."
+    },
+    {
+      "contractId": "019-harvest-price-manipulation",
+      "gtId": "VULN-001",
+      "gtClass": "oracle-manipulation",
+      "gtSeverity": "critical",
+      "gtLocation": "spot()",
+      "submittedClass": "price-manipulation",
+      "submittedLocation": "HarvestPriceManipulation.deposit()",
+      "mismatchType": "CLASS_AND_LOCATION_MISMATCH",
+      "pattern": "Agent focused on deposit() rather than the vulnerable spot() price source. Class should be oracle-manipulation because the spot() function itself is the manipulable oracle."
+    },
+    {
+      "contractId": "022-c4-oracle-decimals",
+      "gtId": "VULN-001",
+      "gtClass": "precision-loss",
+      "gtSeverity": "high",
+      "gtLocation": "collateralValue(address)",
+      "submittedClass": "oracle-manipulation",
+      "submittedLocation": "collateralValue()",
+      "mismatchType": "CLASS_MISMATCH",
+      "pattern": "Agent classified decimals mismatch as oracle-manipulation. GT classifies as precision-loss because the core bug is arithmetic precision (8 vs 18 decimals), not oracle mechanism manipulation."
+    }
+  ],
+  "severityMismatches": [
+    {
+      "contractId": "002-stale-oracle-vault",
+      "gtSeverity": "critical",
+      "submittedSeverity": "high",
+      "class": "oracle-manipulation",
+      "direction": "under-rated"
+    },
+    {
+      "contractId": "004-oracle-staleness-admin",
+      "gtId": "VULN-001",
+      "gtSeverity": "critical",
+      "submittedSeverity": "high",
+      "class": "oracle-manipulation",
+      "direction": "under-rated"
+    },
+    {
+      "contractId": "004-oracle-staleness-admin",
+      "gtId": "VULN-002",
+      "gtSeverity": "high",
+      "submittedSeverity": "medium",
+      "class": "access-control",
+      "direction": "under-rated"
+    },
+    {
+      "contractId": "006-governor-timelock-bypass",
+      "gtSeverity": "high",
+      "submittedSeverity": "critical",
+      "class": "governance",
+      "direction": "over-rated"
+    },
+    {
+      "contractId": "010-initializer-exposed",
+      "gtId": "VULN-001",
+      "gtSeverity": "high",
+      "submittedSeverity": "critical",
+      "class": "initialisation",
+      "direction": "over-rated"
+    },
+    {
+      "contractId": "014-ronin-access-control",
+      "gtId": "VULN-002",
+      "gtSeverity": "critical",
+      "submittedSeverity": "high",
+      "class": "signature-verification",
+      "direction": "under-rated",
+      "note": "signature-verification findings submitted as high but GT rates critical because it enables complete bypass"
+    },
+    {
+      "contractId": "018-badger-approval",
+      "gtId": "VULN-002",
+      "gtSeverity": "high",
+      "submittedSeverity": "medium",
+      "class": "unchecked-return",
+      "direction": "under-rated"
+    },
+    {
+      "contractId": "020-wormhole-signature",
+      "gtId": "VULN-002",
+      "gtSeverity": "critical",
+      "submittedSeverity": "medium",
+      "class": "access-control",
+      "direction": "under-rated"
+    },
+    {
+      "contractId": "025-c4-rounding-drift",
+      "gtSeverity": "high",
+      "submittedSeverity": "medium",
+      "class": "precision-loss",
+      "direction": "under-rated"
+    },
+    {
+      "contractId": "028-c4-permit-domain",
+      "gtSeverity": "high",
+      "submittedSeverity": "critical",
+      "class": "signature-verification",
+      "direction": "over-rated"
+    }
+  ],
+  "falsePositives": [
+    {
+      "contractId": "005-flash-loan-liquidator",
+      "submittedClass": "oracle-manipulation",
+      "submittedLocation": "FlashLoanLiquidator.liquidate()",
+      "note": "Secondary finding not in GT; GT only has one vulnerability"
+    },
+    {
+      "contractId": "007-cross-reentrant",
+      "submittedClass": "access-control",
+      "submittedLocation": "CrossReentrant.setHook()",
+      "note": "Real vulnerability but not in GT (GT only has reentrancy)"
+    },
+    {
+      "contractId": "009-proxy-collision",
+      "submittedClass": "storage-collision",
+      "submittedLocation": "ProxyCollision.fallback()",
+      "note": "Real vulnerability but GT classifies this as delegatecall"
+    },
+    {
+      "contractId": "012-beanstalk-governance",
+      "submittedClass": "access-control",
+      "submittedLocation": "execute()",
+      "note": "Third finding; GT only has 2 governance findings"
+    },
+    {
+      "contractId": "014-ronin-access-control",
+      "submittedClass": "signature-verification",
+      "submittedLocation": "executeTransfer()",
+      "note": "Valid finding but GT only counts 2 vulns. This overlaps with VULN-002"
+    },
+    {
+      "contractId": "017-parity-delegatecall",
+      "submittedClass": "access-control",
+      "submittedLocation": "ParityDelegatecall.setLib()",
+      "note": "Real vulnerability but not in GT; GT focuses on delegatecall and initialisation"
+    },
+    {
+      "contractId": "018-badger-approval",
+      "submittedClass": "access-control",
+      "submittedLocation": "BadgerApproval.setTreasury()",
+      "note": "Real vulnerability but GT only has 2 findings"
+    },
+    {
+      "contractId": "019-harvest-price-manipulation",
+      "submittedClass": "flash-loan",
+      "submittedLocation": "HarvestPriceManipulation.deposit()",
+      "note": "Real attack vector but not a separate GT entry"
+    },
+    {
+      "contractId": "020-wormhole-signature",
+      "submittedClass": "signature-verification",
+      "submittedLocation": "WormholeSignature.execute()",
+      "note": "Second sig-verification finding; one is duplicate coverage of VULN-001 domain"
+    },
+    {
+      "contractId": "022-c4-oracle-decimals",
+      "submittedClass": "oracle-manipulation",
+      "submittedLocation": "collateralValue()",
+      "note": "Secondary staleness finding; not in GT (GT is precision-loss)"
+    },
+    {
+      "contractId": "023-c4-signature-replay",
+      "submittedClass": "signature-verification",
+      "submittedLocation": "execute()",
+      "note": "Second sig-verification finding; domain separation is not a separate GT entry"
+    },
+    {
+      "contractId": "025-c4-rounding-drift",
+      "submittedClass": "precision-loss",
+      "submittedLocation": "mintShares()",
+      "note": "Second precision finding about donation attack; not a separate GT entry"
+    },
+    {
+      "contractId": "030-c4-multicall-reentrancy",
+      "submittedClass": "delegatecall",
+      "submittedLocation": "multicall()",
+      "note": "Real vulnerability but GT only has reentrancy as the primary class"
+    }
+  ],
+  "confidenceCalibration": {
+    "averageConfidenceAllFindings": 0.916,
+    "averageConfidenceMatchedFindings": 0.942,
+    "averageConfidenceUnmatchedFindings": 0.879,
+    "brierScore": 0.3108,
+    "expectedCalibrationError": 0.3131,
+    "overconfidentOn": "false-positive findings have nearly same confidence as true-positives",
+    "guideline": "Lower confidence for secondary/supplementary findings; distinguish primary vulnerability from attack vector findings"
+  },
+  "classTaxonomyGuidelines": {
+    "price-manipulation": "The underlying vulnerability is that a price can be influenced. Flash loans or oracle manipulation may be the MECHANISM, but if the root cause is trusting a manipulable price, the class is price-manipulation.",
+    "oracle-manipulation": "The oracle mechanism itself is exploitable (e.g., using spot reserves, no TWAP, no staleness check). Distinct from price-manipulation in that the oracle design is the root cause.",
+    "flash-loan": "The vulnerability specifically enables or requires flash-loan amplification as the core issue (e.g., borrowing without proper collateral lock). Not every flash-loan-assisted attack is class flash-loan.",
+    "governance": "Governance mechanism flaws (snapshot-less voting, missing timelocks). Even if flash loans enable the attack, the vulnerability is in the governance design.",
+    "precision-loss": "Arithmetic precision errors (rounding, decimal mismatch, overflow). Not oracle-related even if the result affects price calculations.",
+    "access-control": "Missing or inadequate authorization checks. Includes: unvalidated parameters that break trust assumptions, missing reentrancy guards on externally-controlled callbacks.",
+    "initialisation": "Re-initialization or unprotected initializer. If there's also an unvalidated parameter, that may be a separate access-control finding."
+  },
+  "severityGuidelines": {
+    "critical": "Direct fund loss possible with no preconditions beyond a single attacker transaction. Re-initialization that enables ownership takeover is critical only if it leads to direct fund loss.",
+    "high": "Significant impact but requires preconditions (e.g., compromised admin, specific token behavior). Oracle staleness, unvalidated parameters, unchecked returns are typically high. Re-initialization of upgradeable proxies is high if ownership takeover is possible.",
+    "medium": "Limited impact or requires unlikely preconditions. Secondary access-control issues, informational oracle concerns.",
+    "systematicBiases": [
+      "oracle-manipulation staleness findings should be critical (not high) when they directly enable price exploitation",
+      "access-control admin privilege findings should be high (not medium) when admin can redirect/drain funds",
+      "unchecked-return on ERC20 should be high (not medium) since it enables silent failures",
+      "governance timelock bypass should be high (not critical) unless there's a direct single-tx drain path",
+      "initialisation re-init should be high if behind a proxy, critical only if direct fund drain",
+      "signature-verification bypass enabling unauthorized transfers should be critical",
+      "permit domain separation issues should be high (not critical) unless direct fund loss in single-chain",
+      "precision-loss rounding should be high (not medium) when accumulation leads to meaningful drain"
+    ]
+  }
+}
